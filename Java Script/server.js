@@ -403,12 +403,16 @@ cron.schedule('0 9 * * *', async () => {
 // Run initial check on server start
 checkAndSendExpiryReminders().catch(console.error);
 
-// Start Express Server
-app.listen(PORT, () => {
-  console.log(`\n==================================================`);
-  console.log(`⚡ 500CC FITNESS CLUB SERVER RUNNING ON PORT ${PORT}`);
-  console.log(`🌐 Public Website: http://localhost:${PORT}/HTML%20and%20CSS/index.html`);
-  console.log(`👤 Client Profile: http://localhost:${PORT}/HTML%20and%20CSS/profile.html`);
-  console.log(`👑 Admin Dashboard: http://localhost:${PORT}/HTML%20and%20CSS/admin.html`);
-  console.log(`==================================================\n`);
-});
+// Export app for Vercel Serverless Functions
+module.exports = app;
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`\n==================================================`);
+    console.log(`⚡ 500CC FITNESS CLUB SERVER RUNNING ON PORT ${PORT}`);
+    console.log(`🌐 Public Website: http://localhost:${PORT}`);
+    console.log(`👤 Client Profile: http://localhost:${PORT}/profile`);
+    console.log(`👑 Admin Dashboard: http://localhost:${PORT}/admin`);
+    console.log(`==================================================\n`);
+  });
+}
