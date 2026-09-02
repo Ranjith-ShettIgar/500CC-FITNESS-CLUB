@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "Java Script/server.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
+    },
     {
-      "src": "/(.*)",
-      "dest": "Java Script/server.js"
+      "source": "/admin",
+      "destination": "/HTML and CSS/admin.html"
+    },
+    {
+      "source": "/profile",
+      "destination": "/HTML and CSS/profile.html"
     }
   ]
 }
