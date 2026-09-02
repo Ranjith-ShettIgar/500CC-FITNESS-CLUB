@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>500CC FITNESS CLUB - Premium Gym & Fitness</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+  <!-- Ambient Floating Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      ⚡ 500CC <span>FITNESS CLUB</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <!-- Dynamic Profile/Logout links appended via JS when logged in -->
+      <li id="authNavBtn">
+        <button class="btn btn-primary" onclick="openModal('authModal')">Login / Register</button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">THE ULTIMATE FITNESS DESTINATION</span>
+      <h1 class="hero-title">TRANSFORM YOUR <span>BODY</span> & MIND</h1>
+      <p class="hero-desc">State-of-the-art strength training, cardio zone, certified personal trainers, and high-intensity group classes. Join the movement today.</p>
+      <div style="display: flex; gap: 1rem;">
+        <button class="btn btn-primary" onclick="openModal('authModal', 'client-register')">Become A Member</button>
+        <a href="#contact" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2 class="section-title">WHY CHOOSE 500CC FITNESS CLUB</h2>
+    <p class="section-subtitle">We provide an unparalleled environment engineered for peak physical performance.</p>
+    
+    <div class="grid-3">
+      <div class="card">
+        <h3 style="margin-bottom: 1rem; color: var(--accent-lime);">🚀 Elite Equipment</h3>
+        <p style="color: var(--text-muted);">Biomotion strength rigs, Olympic lifting platforms, and cutting-edge cardio machinery for max endurance.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">🔥 Certified Coaches</h3>
+        <p style="color: var(--text-muted);">Master trainers dedicated to tailoring custom workout protocols and body composition transformations.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom: 1rem; color: var(--accent-orange);">💳 In-Person Simplicity</h3>
+        <p style="color: var(--text-muted);">No online hidden fees. Pay directly at the gym counter and manage your membership invoice transparently online.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section" style="text-align: center;">
+    <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #FFFFFF;">VISIT 500CC FITNESS CLUB TODAY</h2>
+    <p style="color: #94A3B8; margin-bottom: 2rem;">Drop by the gym counter to complete registration, activate subscriptions, or pay renewal fees in person.</p>
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1.5rem; color: #FFFFFF;">
+      <div>
+        <div style="color: var(--accent-lime); font-weight: 800;">📍 LOCATION</div>
+        <div style="color: #E2E8F0;">Chikkensal Road, Kundapur, Karnataka 576201</div>
+      </div>
+      <div>
+        <div style="color: var(--accent-lime); font-weight: 800;">📞 PHONE</div>
+        <div style="color: #E2E8F0;">+91 8553483001</div>
+      </div>
+      <div>
+        <div style="color: var(--accent-lime); font-weight: 800;">🕒 HOURS</div>
+        <div style="color: #E2E8F0;">5:00 AM - 10:30 PM Daily</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Combined Auth Modal (Client Login, Client Register, Admin Login) -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h3 id="modalTitle" style="font-size: 1.4rem;">CLIENT LOGIN</h3>
+        <button onclick="closeModal('authModal')" style="background: none; border: none; color: var(--text-main); font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+
+      <!-- Auth Tabs -->
+      <div class="modal-tabs">
+        <button type="button" class="modal-tab-btn active" id="tabClientLogin" onclick="switchAuthTab('client-login')">Client Login</button>
+        <button type="button" class="modal-tab-btn" id="tabClientRegister" onclick="switchAuthTab('client-register')">Register</button>
+        <button type="button" class="modal-tab-btn" id="tabAdminLogin" onclick="switchAuthTab('admin-login')">Admin Portal</button>
+      </div>
+
+      <!-- Form Container -->
+      <form id="authForm" onsubmit="handleAuthSubmit(event)">
+        <div id="formFields">
+          <!-- Dynamic Form Fields rendered via main.js -->
+        </div>
+
+        <div id="authAlert" style="display: none; padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem; margin-bottom: 1rem;"></div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="authSubmitBtn">LOG IN</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 500CC FITNESS CLUB. All Rights Reserved. Designed for In-Person Gym Membership Management.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

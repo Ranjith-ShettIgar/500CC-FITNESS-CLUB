@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile - 500CC FITNESS CLUB</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+  <!-- Ambient Floating Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      ⚡ 500CC <span>FITNESS CLUB</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="index.html#about" class="nav-link">About</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      <li><a href="profile.html" class="nav-link active">My Profile</a></li>
+      <li><button class="btn btn-outline" style="padding: 0.4rem 1rem;" onclick="logoutUser()">Logout</button></li>
+    </ul>
+  </nav>
+
+  <div class="section" style="padding-top: 8rem;">
+    
+    <!-- Profile Welcome Banner -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1 style="font-size: 2.5rem; font-weight: 900; text-transform: uppercase;">MEMBER DASHBOARD</h1>
+        <p style="color: var(--text-muted);">Manage your personal details and view your membership status & invoices.</p>
+      </div>
+      <div id="statusBadgeContainer">
+        <!-- Rendered dynamically via main.js -->
+      </div>
+    </div>
+
+    <div class="grid-3" style="grid-template-columns: 1fr 2fr; margin-bottom: 3rem;">
+      
+      <!-- Personal Information Card -->
+      <div class="card">
+        <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent-lime); text-transform: uppercase;">👤 Personal Info</h3>
+        <div style="display: flex; flex-direction: column; gap: 1rem;" id="personalInfoBox">
+          <!-- Rendered via main.js -->
+        </div>
+      </div>
+
+      <!-- Current Membership Details Card -->
+      <div class="card" style="border-color: var(--border-glow);">
+        <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent-lime); text-transform: uppercase;">⚡ Active Subscription Info</h3>
+        
+        <div id="membershipInfoBox" class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+          <!-- Rendered via main.js -->
+        </div>
+
+        <div class="notice-box">
+          📌 <strong>In-Person Renewal Notice:</strong> Subscriptions are renewed directly at the gym reception desk. Please visit gym staff to pay and extend your due date.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Membership Payment History & Invoices -->
+    <div class="card">
+      <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--accent-cyan); text-transform: uppercase;">📄 Renewal Payment History & Invoices</h3>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Invoice #</th>
+              <th>Date</th>
+              <th>Plan</th>
+              <th>Amount</th>
+              <th>Payment Method</th>
+              <th>New Expiry Date</th>
+              <th>Invoice</th>
+            </tr>
+          </thead>
+          <tbody id="paymentHistoryBody">
+            <!-- Dynamic rows rendered via main.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 500CC FITNESS CLUB. All Rights Reserved. Member Self-Service Portal.</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadUserProfile();
+    });
+  </script>
+</body>
+</html>

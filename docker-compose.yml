@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  gym-website:
+    build: .
+    image: ranjith2006/gym-website:latest
+    container_name: gym-website
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./Database:/app/Database
+      - ./Invoices:/app/Invoices
+    restart: always
+    environment:
+      - PORT=3000
+      - NODE_ENV=production

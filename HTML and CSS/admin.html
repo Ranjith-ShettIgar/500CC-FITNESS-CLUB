@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - 500CC FITNESS CLUB</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-theme">
+  <!-- Ambient Floating Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- Admin Navbar -->
+  <nav class="navbar">
+    <a href="admin.html" class="nav-brand">
+      ⚡ 500CC <span>ADMIN</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="admin.html" class="nav-link active">Dashboard</a></li>
+      <li><a href="index.html" class="nav-link" target="_blank">View Main Site</a></li>
+      <li><button class="btn btn-outline" style="padding: 0.4rem 1rem;" onclick="logoutAdmin()">Logout Admin</button></li>
+    </ul>
+  </nav>
+
+  <div class="section" style="padding-top: 8rem;">
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1 style="font-size: 2.5rem; font-weight: 900; text-transform: uppercase;">ADMIN CONTROL CENTER</h1>
+        <p style="color: var(--text-muted);">Manage member subscriptions, record offline payments, and track expirations.</p>
+      </div>
+      <button class="btn btn-primary" onclick="openRenewalModal()">+ Record New Payment</button>
+    </div>
+
+    <!-- Overview Stats Cards -->
+    <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 3rem;" id="adminStatsGrid">
+      <div class="card">
+        <span style="color: var(--text-muted); font-size: 0.8rem; font-weight: 700;">TOTAL MEMBERS</span>
+        <div style="font-size: 2.5rem; font-weight: 900; color: var(--text-main);" id="statTotalClients">0</div>
+      </div>
+      <div class="card">
+        <span style="color: var(--accent-green); font-size: 0.8rem; font-weight: 700;">ACTIVE MEMBERS</span>
+        <div style="font-size: 2.5rem; font-weight: 900; color: var(--accent-green);" id="statActiveCount">0</div>
+      </div>
+      <div class="card">
+        <span style="color: var(--accent-orange); font-size: 0.8rem; font-weight: 700;">EXPIRING IN 2 DAYS</span>
+        <div style="font-size: 2.5rem; font-weight: 900; color: var(--accent-orange);" id="statExpiringCount">0</div>
+      </div>
+      <div class="card">
+        <span style="color: var(--accent-red); font-size: 0.8rem; font-weight: 700;">EXPIRED MEMBERS</span>
+        <div style="font-size: 2.5rem; font-weight: 900; color: var(--accent-red);" id="statExpiredCount">0</div>
+      </div>
+    </div>
+
+    <!-- Client Search & Filter Controls -->
+    <div class="card" style="margin-bottom: 2rem; padding: 1.5rem;">
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+        <input type="text" id="adminSearchInput" class="form-control" style="flex: 2; min-width: 250px;" placeholder="🔍 Search by Name, Email, Phone, or Member ID..." oninput="filterAdminClients()">
+        
+        <select id="adminStatusFilter" class="form-control" style="flex: 1; min-width: 180px;" onchange="filterAdminClients()">
+          <option value="ALL">All Statuses</option>
+          <option value="ACTIVE">Active Only</option>
+          <option value="EXPIRING_SOON">Expiring Soon (Within 2 Days)</option>
+          <option value="EXPIRED">Expired Only</option>
+        </select>
+
+        <button type="button" class="btn btn-primary" style="padding: 0.75rem 1.25rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; border-radius: var(--radius-sm);" onclick="exportAdminClientsPDF()">
+          📄 Export PDF Report
+        </button>
+      </div>
+    </div>
+
+    <!-- Client Management Table -->
+    <div class="card">
+      <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--text-main); text-transform: uppercase;">📋 Member Subscription Registry</h3>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Member ID</th>
+              <th>Name & Contact</th>
+              <th>Plan</th>
+              <th>Start Date</th>
+              <th>Due Date</th>
+              <th>Status</th>
+              <th>Last Payment</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminClientTableBody">
+            <!-- Dynamic Client Rows rendered via main.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Record In-Person Payment & Renewal Modal -->
+  <div class="modal-overlay" id="renewalModal">
+    <div class="modal">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.4rem;">RECORD IN-PERSON PAYMENT</h3>
+        <button onclick="closeModal('renewalModal')" style="background: none; border: none; color: var(--text-main); font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+
+      <form id="renewalForm" onsubmit="handleRenewalSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Select Client</label>
+          <select id="renewClientId" class="form-control" required onchange="populateRenewalDefaults()">
+            <!-- Dynamic Options -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Membership Plan</label>
+          <select id="renewPlan" class="form-control" required onchange="updatePlanAmount()">
+            <option value="Monthly Pass">Monthly Pass (₹1,500 - 30 Days)</option>
+            <option value="Quarterly Pass">Quarterly Pass (₹4,000 - 90 Days)</option>
+            <option value="Annual VIP Pass">Annual VIP Pass (₹14,000 - 365 Days)</option>
+            <option value="Custom Plan">Custom Duration / Price</option>
+          </select>
+        </div>
+
+        <div style="display: flex; gap: 1rem;">
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Amount Paid (₹)</label>
+            <input type="number" id="renewAmount" class="form-control" value="1500" required>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Payment Method</label>
+            <select id="renewMethod" class="form-control">
+              <option value="Cash">Cash (In-Person)</option>
+              <option value="UPI / QR Code">UPI / QR Code (In-Person)</option>
+              <option value="Card Offline">Card Offline (POS Terminal)</option>
+              <option value="Bank Transfer">Direct Bank Transfer</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem;">
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Payment Date</label>
+            <input type="date" id="renewPaymentDate" class="form-control" required>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">New Subscription Due Date</label>
+            <input type="date" id="renewDueDate" class="form-control" required>
+          </div>
+        </div>
+
+        <div id="renewalAlert" style="display: none; padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem; margin-bottom: 1rem;"></div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">RECORD PAYMENT & EXTEND SUBSCRIPTION</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Member Profile Modal -->
+  <div class="modal-overlay" id="editMemberModal">
+    <div class="modal" style="max-width: 600px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.4rem;">✏️ EDIT MEMBER PROFILE</h3>
+        <button onclick="closeModal('editMemberModal')" style="background: none; border: none; color: var(--text-main); font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+
+      <form id="editMemberForm" onsubmit="handleEditMemberSubmit(event)">
+        <input type="hidden" id="editClientId">
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div class="form-group" style="flex: 1; min-width: 220px;">
+            <label class="form-label">Full Name *</label>
+            <input type="text" id="editFullName" class="form-control" required>
+          </div>
+          <div class="form-group" style="flex: 1; min-width: 220px;">
+            <label class="form-label">Email Address *</label>
+            <input type="email" id="editEmail" class="form-control" required>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div class="form-group" style="flex: 1; min-width: 220px;">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" id="editPhone" class="form-control" required>
+          </div>
+          <div class="form-group" style="flex: 1; min-width: 220px;">
+            <label class="form-label">Gender</label>
+            <select id="editGender" class="form-control">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div class="form-group" style="flex: 1; min-width: 220px;">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" id="editDob" class="form-control">
+          </div>
+          <div class="form-group" style="flex: 1; min-width: 220px;">
+            <label class="form-label">Emergency Contact</label>
+            <input type="text" id="editEmergency" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Address</label>
+          <input type="text" id="editAddress" class="form-control">
+        </div>
+
+        <hr style="margin: 1.25rem 0; border: none; border-top: 1px solid #E2E8F0;">
+        <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--text-main);">Subscription Parameters</h4>
+
+        <div class="form-group">
+          <label class="form-label">Membership Plan</label>
+          <select id="editPlanName" class="form-control">
+            <option value="Monthly Pass">Monthly Pass</option>
+            <option value="Quarterly Pass">Quarterly Pass</option>
+            <option value="Annual VIP Pass">Annual VIP Pass</option>
+            <option value="Custom Plan">Custom Plan</option>
+          </select>
+        </div>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div class="form-group" style="flex: 1; min-width: 220px;">
+            <label class="form-label">Start Date</label>
+            <input type="date" id="editStartDate" class="form-control">
+          </div>
+          <div class="form-group" style="flex: 1; min-width: 220px;">
+            <label class="form-label">Due Date</label>
+            <input type="date" id="editDueDate" class="form-control">
+          </div>
+        </div>
+
+        <div id="editMemberAlert" style="display: none; padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem; margin-bottom: 1rem;"></div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">SAVE MEMBER CHANGES</button>
+      </form>
+    </div>
+  <!-- Authentication Modal (Client / Register / Admin Login) -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h3 id="modalTitle" style="font-size: 1.4rem;">ADMIN LOGIN</h3>
+        <button onclick="closeModal('authModal')" style="background: none; border: none; color: var(--text-main); font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+
+      <!-- Auth Tabs -->
+      <div class="modal-tabs">
+        <button type="button" class="modal-tab-btn" id="tabClientLogin" onclick="switchAuthTab('client-login')">Client Login</button>
+        <button type="button" class="modal-tab-btn" id="tabClientRegister" onclick="switchAuthTab('client-register')">Register</button>
+        <button type="button" class="modal-tab-btn active" id="tabAdminLogin" onclick="switchAuthTab('admin-login')">Admin Portal</button>
+      </div>
+
+      <!-- Form Container -->
+      <form id="authForm" onsubmit="handleAuthSubmit(event)">
+        <div id="formFields">
+          <!-- Dynamic Form Fields rendered via main.js -->
+        </div>
+
+        <div id="authAlert" style="display: none; padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.85rem; margin-bottom: 1rem;"></div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="authSubmitBtn">LOG IN</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 500CC FITNESS CLUB. Administrator Management Dashboard.</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadAdminDashboard();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "id": "ADM-1001",
+      "full_name": "Gym Administrator",
+      "username": "Admin01",
+      "email": "Admin01@500ccfitness.com",
+      "phone": "+91 8553483001",
+      "password_hash": "$2a$10$S0LWpklcliJ/rAVXL6T2xu4O02g0O5hrEBQ11jHeQHPyilZwbBTuu",
+      "role": "ADMIN",
+      "created_at": "2026-09-01"
+    },
+    {
+      "id": "CLT-9936",
+      "full_name": "B RANJITH D SHETTIGAR",
+      "email": "ranjithshettygar2006@gmail.com",
+      "phone": "+918867143275",
+      "password_hash": "$2a$10$kdT5pdc136aKMFmrTnOAG.TqBwVaPVxc395F/lq8ef34hyr1adQjK",
+      "dob": "2006-10-22",
+      "gender": "Male",
+      "address": "Mood Keri Busrur, #9/40 Mood Krai Busrur",
+      "emergency_contact": "8867143275",
+      "role": "CLIENT",
+      "created_at": "2026-09-02"
+    }
+  ],
+  "memberships": [
+    {
+      "id": "MEM-0003",
+      "client_id": "CLT-9936",
+      "plan_name": "Custom Plan",
+      "start_date": "2026-09-02",
+      "due_date": "2026-10-02",
+      "last_renewal_date": "2026-09-02",
+      "amount_paid": 800
+    }
+  ],
+  "payments": [
+    {
+      "id": "PAY-2658",
+      "invoice_number": "INV-2026-7998",
+      "client_id": "CLT-9936",
+      "membership_id": "MEM-0003",
+      "amount": 800,
+      "plan_name": "Custom Plan",
+      "payment_date": "2026-09-02",
+      "payment_method": "Cash",
+      "due_date": "2026-10-02",
+      "recorded_by_admin": "ADM-1001"
+    }
+  ],
+  "notifications": []
+}
