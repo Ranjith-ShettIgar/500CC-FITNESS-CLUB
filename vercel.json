@@ -12,6 +12,14 @@
     {
       "source": "/profile",
       "destination": "/HTML and CSS/profile.html"
+    },
+    {
+      "source": "/main.js",
+      "destination": "/HTML and CSS/main.js"
+    },
+    {
+      "source": "/styles.css",
+      "destination": "/HTML and CSS/styles.css"
     }
   ]
 }
