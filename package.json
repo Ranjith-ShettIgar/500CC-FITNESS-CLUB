@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node \"Java Script/server.js\"",
     "dev": "node --watch \"Java Script/server.js\"",
-    "doc": "node \"Java Script/generate-docs.js\""
+    "doc": "node \"Java Script/generate-docs.js\"",
+    "push": "node \"Java Script/generate-docs.js\" && git add . && git commit -m \"Auto-update project & documentation\" && git push origin main"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
