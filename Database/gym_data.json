@@ -204,6 +204,21 @@
       "emergency_contact": "",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-0376",
+      "full_name": "shrivijetha",
+      "username": "shrivijetha",
+      "email": "shrivijethp45@gmail.com",
+      "phone": "9164874726",
+      "password_hash": "$2a$10$1gJLNDw2dzbebZMbgbmHd.DzHS3CKdCu7mKq4rq/s4N4.VOPBMKc.",
+      "profilepassword": "Svp@4585",
+      "dob": "1996-10-02",
+      "gender": "Male",
+      "address": "siddanayk road kundapura",
+      "emergency_contact": "6362252616",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -318,6 +333,15 @@
     {
       "id": "MEM-9722",
       "client_id": "CLT-9575",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-0538",
+      "client_id": "CLT-0376",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-03",
       "due_date": "2026-09-03",
