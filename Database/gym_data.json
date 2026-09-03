@@ -39,6 +39,21 @@
       "emergency_contact": "6362748651",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-5676",
+      "full_name": "Sudeep Kumar Shetty",
+      "username": "Sudeep Kumar Shetty",
+      "email": "sudeepkumarshetty001@gmail.com",
+      "phone": "+919741373638",
+      "password_hash": "$2a$10$DCZymGz311eZBmVEhEGX8O.NfeLhiqfHmCPNAYa3JYunkLQCd1j32",
+      "profilepassword": "9741373638",
+      "dob": "1994-10-25",
+      "gender": "Male",
+      "address": "Basrur",
+      "emergency_contact": "+91 94832 11314",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -54,6 +69,15 @@
     {
       "id": "MEM-8373",
       "client_id": "CLT-8206",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-5831",
+      "client_id": "CLT-5676",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-03",
       "due_date": "2026-09-03",
