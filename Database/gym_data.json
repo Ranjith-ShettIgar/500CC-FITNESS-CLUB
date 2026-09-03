@@ -219,6 +219,21 @@
       "emergency_contact": "6362252616",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-8692",
+      "full_name": "Ayushh kumar",
+      "username": "Ayushh kumar",
+      "email": "ayush702251@gmail.com",
+      "phone": "9108055364",
+      "password_hash": "$2a$10$MwuQ8zbCHCsYpMXonoi3meh6bZQYxXGFgqIhXg.6BTrGGrWgOpphK",
+      "profilepassword": "Ayush#123#",
+      "dob": "2007-04-25",
+      "gender": "Male",
+      "address": "155D WARD 1, MATHRU SANIDHYA KRISHNAPURA MATTA NERAMBALL",
+      "emergency_contact": "7022564355",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -342,6 +357,15 @@
     {
       "id": "MEM-0538",
       "client_id": "CLT-0376",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-8917",
+      "client_id": "CLT-8692",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-03",
       "due_date": "2026-09-03",
