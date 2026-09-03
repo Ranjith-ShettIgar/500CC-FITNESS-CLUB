@@ -24,6 +24,21 @@
       "emergency_contact": "9449930207",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-8206",
+      "full_name": "Prajwal kharvi",
+      "username": "Prajwal kharvi",
+      "email": "prajwalkharvi722@gmail.com",
+      "phone": "+919380172588",
+      "password_hash": "$2a$10$c/L6QQtlQ81K5rECM2Ce8eOc.wgZrVtOrKw3FrNryvxbjtwNO9nTy",
+      "profilepassword": "Prajwal07",
+      "dob": "2007-04-07",
+      "gender": "Male",
+      "address": "Kharvi melkeri near naga jattigeshwara temple",
+      "emergency_contact": "6362748651",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -35,6 +50,15 @@
       "due_date": "2026-09-08",
       "last_renewal_date": "2026-07-08",
       "amount_paid": 800
+    },
+    {
+      "id": "MEM-8373",
+      "client_id": "CLT-8206",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
     }
   ],
   "payments": [
