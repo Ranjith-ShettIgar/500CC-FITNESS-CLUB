@@ -114,6 +114,21 @@
       "emergency_contact": "",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-8762",
+      "full_name": "Avinash",
+      "username": "Avinash",
+      "email": "avinashbusraru2300@gmail.com",
+      "phone": "9972425068",
+      "password_hash": "$2a$10$V4LQLaaFY4L.2ACt91ILr.zIY0MQJEU122tpVSkoIID1ndpMInEEq",
+      "profilepassword": "Avibsr@2004",
+      "dob": "2004-05-12",
+      "gender": "Male",
+      "address": "Janatha Colony Kolkere Basrur",
+      "emergency_contact": "9900302166",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -174,6 +189,15 @@
     {
       "id": "MEM-2013",
       "client_id": "CLT-1921",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-8925",
+      "client_id": "CLT-8762",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-03",
       "due_date": "2026-09-03",
