@@ -54,6 +54,21 @@
       "emergency_contact": "+91 94832 11314",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-0974",
+      "full_name": "Viraj",
+      "username": "Viraj",
+      "email": "virajkharvi007@gmail.com",
+      "phone": "8151021828",
+      "password_hash": "$2a$10$V/u7Xu/MQF0kVCHUszpX3.DK5O/fCfrlJUoKqVvpK.N1rn6tQrUAm",
+      "profilepassword": "Viraj kharvi 18",
+      "dob": "2006-10-11",
+      "gender": "Male",
+      "address": "Vilaskeri,Basrur, kundapura",
+      "emergency_contact": "9844864961",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -78,6 +93,15 @@
     {
       "id": "MEM-5831",
       "client_id": "CLT-5676",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-1127",
+      "client_id": "CLT-0974",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-03",
       "due_date": "2026-09-03",
