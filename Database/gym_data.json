@@ -249,6 +249,21 @@
       "emergency_contact": "9008854801",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-9157",
+      "full_name": "Srajan",
+      "username": "Srajan",
+      "email": "srajanpoojary0713@gmail.com",
+      "phone": "+919380349213",
+      "password_hash": "$2a$10$5jL6Y4YfP7AntyCy7M9lLuyFJiMZLv/e8cg.fUTEk9ozyja4n2.Qy",
+      "profilepassword": "938034",
+      "dob": "2007-10-19",
+      "gender": "Male",
+      "address": "Chickensal Road Mel hithlu kundapura",
+      "emergency_contact": "+919380349213",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -390,6 +405,15 @@
     {
       "id": "MEM-8841",
       "client_id": "CLT-8675",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-9313",
+      "client_id": "CLT-9157",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-03",
       "due_date": "2026-09-03",
