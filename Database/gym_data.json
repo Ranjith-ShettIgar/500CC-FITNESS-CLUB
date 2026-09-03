@@ -31,7 +31,7 @@
       "username": "Prajwal kharvi",
       "email": "prajwalkharvi722@gmail.com",
       "phone": "+919380172588",
-      "password_hash": "$2a$10$c/L6QQtlQ81K5rECM2Ce8eOc.wgZrVtOrKw3FrNryvxbjtwNO9nTy",
+      "password_hash": "$2a$10$cU18HUeMneXdVYr0b9feEeEbPEdLgT4ms4SpFuE.FCdm2MNMyPZC2",
       "profilepassword": "Prajwal07",
       "dob": "2007-04-07",
       "gender": "Male",
@@ -129,8 +129,8 @@
     {
       "id": "MEM-8373",
       "client_id": "CLT-8206",
-      "plan_name": "Pending Activation",
-      "start_date": "2026-09-03",
+      "plan_name": "Monthly Pass",
+      "start_date": "2026-08-03",
       "due_date": "2026-09-03",
       "last_renewal_date": "N/A",
       "amount_paid": 0
