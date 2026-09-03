@@ -99,6 +99,21 @@
       "emergency_contact": "+919632163492",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-1921",
+      "full_name": "Kiran",
+      "username": "Kiran",
+      "email": "kinna708@gmail.com",
+      "phone": "8151946642",
+      "password_hash": "$2a$10$Z4nBSTt.nLfDpTZUC3R8f.zcdHQ.2wsvBq9er4eqQwz6N71RYkb8G",
+      "profilepassword": "kinna@1234",
+      "dob": "1999-10-11",
+      "gender": "Male",
+      "address": "Kundapura",
+      "emergency_contact": "",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -150,6 +165,15 @@
     {
       "id": "MEM-3991",
       "client_id": "CLT-3833",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-2013",
+      "client_id": "CLT-1921",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-03",
       "due_date": "2026-09-03",
