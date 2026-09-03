@@ -189,6 +189,21 @@
       "emergency_contact": "7892666359",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-9575",
+      "full_name": "https://500-cc-fitness-club.vercel.app/",
+      "username": "https://500-cc-fitness-club.vercel.app/",
+      "email": "gym@gym.com",
+      "phone": "+91-9876543210",
+      "password_hash": "$2a$10$sfF/YcW4NKDHFk0brAdoBuT0puTIw5R0/oZYVR24YACwWokEycvaG",
+      "profilepassword": "password",
+      "dob": "",
+      "gender": "Male",
+      "address": "",
+      "emergency_contact": "",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -294,6 +309,15 @@
     {
       "id": "MEM-0682",
       "client_id": "CLT-0513",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-9722",
+      "client_id": "CLT-9575",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-03",
       "due_date": "2026-09-03",
