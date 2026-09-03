@@ -9,9 +9,34 @@
       "password_hash": "$2a$10$S0LWpklcliJ/rAVXL6T2xu4O02g0O5hrEBQ11jHeQHPyilZwbBTuu",
       "role": "ADMIN",
       "created_at": "2026-09-01"
+    },
+    {
+      "id": "CLT-8210",
+      "full_name": "B Ranjith D Shettigar",
+      "username": "B Ranjith D Shettigar",
+      "email": "ranjithshettygar2006@gmail.com",
+      "phone": "8867143275",
+      "password_hash": "$2a$10$QwFxJM6TNV8I9Tkh9eIere5btZ62le6NUC3m9aloqkpzXfOKxTRrK",
+      "profilepassword": "U05BB24S0077",
+      "dob": "2006-10-22",
+      "gender": "Male",
+      "address": "9/40 Moodkeri,Kundapura,Karnataka VTC:Basrur 576211",
+      "emergency_contact": "9449930207",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
-  "memberships": [],
+  "memberships": [
+    {
+      "id": "MEM-8303",
+      "client_id": "CLT-8210",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    }
+  ],
   "payments": [],
   "notifications": []
 }
