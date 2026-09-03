@@ -69,6 +69,21 @@
       "emergency_contact": "9844864961",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-9272",
+      "full_name": "PRASHANTH M GANGOLLI",
+      "username": "PRASHANTH M GANGOLLI",
+      "email": "prashanthmadival1998@gmail.com",
+      "phone": "7026172706",
+      "password_hash": "$2a$10$NMXCynxMsX/rnbGVUl5qT.o6Mn79lgblAvtwKP8RK4tDt9JTOpxwS",
+      "profilepassword": "102614",
+      "dob": "1998-04-10",
+      "gender": "Male",
+      "address": "Mahaligeshwra Temple Basrur",
+      "emergency_contact": "+91 94823 18026",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -102,6 +117,15 @@
     {
       "id": "MEM-1127",
       "client_id": "CLT-0974",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-9435",
+      "client_id": "CLT-9272",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-03",
       "due_date": "2026-09-03",
