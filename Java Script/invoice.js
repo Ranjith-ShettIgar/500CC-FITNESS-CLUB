@@ -29,14 +29,21 @@ function generatePDFInvoice(payment, client) {
       doc.pipe(writeStream);
 
       // Header Branding
+      const logoPath = path.join(__dirname, '../HTML and CSS/logo.png');
+      if (fs.existsSync(logoPath)) {
+        try {
+          doc.image(logoPath, 50, 38, { width: 55 });
+        } catch (e) {}
+      }
+
       doc.fillColor('#0F172A')
-         .fontSize(24)
-         .text('500CC FITNESS CLUB', 50, 45, { weight: 'bold' });
+         .fontSize(22)
+         .text('500CC FITNESS CLUB', 115, 45, { weight: 'bold' });
       
       doc.fontSize(10)
          .fillColor('#64748B')
-         .text('Chikkensal Road, Kundapur, Karnataka 576201', 50, 75)
-         .text('Phone: +91 8553483001 | Email: billing@500ccfitness.com', 50, 90);
+         .text('Chikkensal Road, Kundapur, Karnataka 576201', 115, 75)
+         .text('Phone: +91 8553483001 | Email: billing@500ccfitness.com', 115, 90);
 
       doc.moveTo(50, 115).lineTo(550, 115).strokeColor('#CBD5E1').stroke();
 

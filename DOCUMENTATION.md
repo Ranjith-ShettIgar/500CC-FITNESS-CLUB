@@ -1,6 +1,6 @@
 # 500CC FITNESS CLUB — Enterprise Technical Documentation
 > **Version**: 1.0.0  
-> **Last Auto-Updated**: September 2, 2026  
+> **Last Auto-Updated**: September 3, 2026  
 > **Repository Tag**: `ranjith2006/gym-website:latest`
 
 ---
@@ -10,8 +10,8 @@
 **500CC FITNESS CLUB** is a full-featured Gym Website and Subscription Management System designed to streamline member onboarding, offline reception billing, renewal tracking, invoice PDF generation, and administrative reporting.
 
 ### Live Metrics Sync
-- **Total Registered Members**: `2`
-- **Active Subscriptions**: `1`
+- **Total Registered Members**: `3`
+- **Active Subscriptions**: `2`
 - **Payment Invoices Issued**: `1`
 
 ---

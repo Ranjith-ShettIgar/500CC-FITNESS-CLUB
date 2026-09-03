@@ -103,6 +103,23 @@ body.dark-theme .nav-brand span {
   color: var(--accent-lime);
 }
 
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(234, 179, 8, 0.4);
+  border: 2px solid #EAB308;
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.nav-brand:hover .brand-logo {
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.65);
+}
+
 body.dark-theme .nav-menu {
   display: flex;
   align-items: center;
