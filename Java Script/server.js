@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const cron = require('node-cron');
 const PDFDocument = require('pdfkit');
+const bcrypt = require('bcryptjs');
 
 const { readDB, writeDB, computeMembershipStatus } = require('./db');
 const { authenticateToken, requireRole, registerClient, loginUser } = require('./auth');
@@ -194,20 +195,27 @@ app.post('/api/admin/renew', authenticateToken, requireRole('ADMIN'), async (req
 app.put('/api/admin/client/:id', authenticateToken, requireRole('ADMIN'), (req, res) => {
   try {
     const { id } = req.params;
-    const { full_name, email, phone, gender, dob, address, emergency_contact, plan_name, start_date, due_date } = req.body;
+    const { full_name, email, phone, gender, dob, address, emergency_contact, plan_name, start_date, due_date, profilepassword } = req.body;
     const db = readDB();
 
     const client = db.users.find(u => u.id === id && u.role === 'CLIENT');
     if (!client) return res.status(404).json({ error: 'Client member not found' });
 
     // Update user profile fields
-    if (full_name !== undefined) client.full_name = full_name;
+    if (full_name !== undefined) {
+      client.full_name = full_name;
+      client.username = full_name; // Full Name *= Username
+    }
     if (email !== undefined) client.email = email;
     if (phone !== undefined) client.phone = phone;
     if (gender !== undefined) client.gender = gender;
     if (dob !== undefined) client.dob = dob;
     if (address !== undefined) client.address = address;
     if (emergency_contact !== undefined) client.emergency_contact = emergency_contact;
+    if (profilepassword !== undefined && profilepassword.trim() !== '') {
+      client.profilepassword = profilepassword.trim();
+      client.password_hash = bcrypt.hashSync(profilepassword.trim(), 10);
+    }
 
     // Update membership fields
     let membership = db.memberships.find(m => m.client_id === id);

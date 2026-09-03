@@ -9,45 +9,9 @@
       "password_hash": "$2a$10$S0LWpklcliJ/rAVXL6T2xu4O02g0O5hrEBQ11jHeQHPyilZwbBTuu",
       "role": "ADMIN",
       "created_at": "2026-09-01"
-    },
-    {
-      "id": "CLT-0007",
-      "full_name": "B RANJITH D SHETTIGAR",
-      "email": "ranjithshettygar2006@gmail.com",
-      "phone": "+918867143275",
-      "password_hash": "$2a$10$DsFw7mBw3d3lxz64Idh3L.kZGGIbuNiPlDdjsvlTNZxa272di43IW",
-      "dob": "2006-10-22",
-      "gender": "Male",
-      "address": "Mood Keri Busrur, #9/40 Mood Krai Busrur 576211",
-      "emergency_contact": "9449930207",
-      "role": "CLIENT",
-      "created_at": "2026-09-03"
     }
   ],
-  "memberships": [
-    {
-      "id": "MEM-0103",
-      "client_id": "CLT-0007",
-      "plan_name": "Monthly Pass",
-      "start_date": "2026-09-03",
-      "due_date": "2026-10-03",
-      "last_renewal_date": "2026-09-03",
-      "amount_paid": 800
-    }
-  ],
-  "payments": [
-    {
-      "id": "PAY-8841",
-      "invoice_number": "INV-2026-7523",
-      "client_id": "CLT-0007",
-      "membership_id": "MEM-0103",
-      "amount": 800,
-      "plan_name": "Monthly Pass",
-      "payment_date": "2026-09-03",
-      "payment_method": "Cash",
-      "due_date": "2026-10-03",
-      "recorded_by_admin": "ADM-1001"
-    }
-  ],
+  "memberships": [],
+  "payments": [],
   "notifications": []
 }

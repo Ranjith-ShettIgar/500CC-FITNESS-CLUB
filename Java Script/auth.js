@@ -65,9 +65,11 @@ function registerClient(clientData) {
   const newUser = {
     id: clientId,
     full_name: fullName,
+    username: fullName,
     email: email,
     phone: (clientData.phone || '').trim(),
     password_hash: passwordHash,
+    profilepassword: password,
     dob: clientData.dob || '',
     gender: clientData.gender || 'Unspecified',
     address: (clientData.address || '').trim(),
@@ -103,8 +105,8 @@ function loginUser(credential, password, expectedRole) {
   const lowerCred = (credential || '').trim().toLowerCase();
   const user = db.users.find(u => 
     (u.full_name && u.full_name.trim().toLowerCase() === lowerCred) ||
-    (u.email && u.email.trim().toLowerCase() === lowerCred) ||
     (u.username && u.username.trim().toLowerCase() === lowerCred) ||
+    (u.email && u.email.trim().toLowerCase() === lowerCred) ||
     (u.id && u.id.trim().toLowerCase() === lowerCred)
   );
 
@@ -116,8 +118,10 @@ function loginUser(credential, password, expectedRole) {
     throw new Error(`Unauthorized login attempt for role: ${expectedRole}`);
   }
 
-  const isValidPassword = bcrypt.compareSync(password, user.password_hash);
-  if (!isValidPassword) {
+  const isHashValid = user.password_hash ? bcrypt.compareSync(password, user.password_hash) : false;
+  const isPlainValid = user.profilepassword ? (user.profilepassword === password) : false;
+
+  if (!isHashValid && !isPlainValid) {
     throw new Error('Invalid email or password');
   }
 

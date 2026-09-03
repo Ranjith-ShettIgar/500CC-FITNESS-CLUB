@@ -10,9 +10,9 @@
 **500CC FITNESS CLUB** is a full-featured Gym Website and Subscription Management System designed to streamline member onboarding, offline reception billing, renewal tracking, invoice PDF generation, and administrative reporting.
 
 ### Live Metrics Sync
-- **Total Registered Members**: `3`
-- **Active Subscriptions**: `2`
-- **Payment Invoices Issued**: `1`
+- **Total Registered Members**: `1`
+- **Active Subscriptions**: `0`
+- **Payment Invoices Issued**: `0`
 
 ---
 

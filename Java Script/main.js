@@ -203,13 +203,15 @@ async function handleAuthSubmit(event) {
 
       const payload = {
         full_name: fullName,
+        username: fullName,
         email: email,
         phone: (document.getElementById('regPhone')?.value || '').trim(),
         gender: document.getElementById('regGender')?.value || 'Male',
         dob: document.getElementById('regDob')?.value || '',
         address: (document.getElementById('regAddress')?.value || '').trim(),
         emergency_contact: (document.getElementById('regEmergency')?.value || '').trim(),
-        password: password
+        password: password,
+        profilepassword: password
       };
 
       const res = await fetch(`${API_BASE}/auth/register`, {
@@ -339,13 +341,14 @@ async function loadUserProfile() {
     if (infoBox) {
       infoBox.innerHTML = `
         <div><strong style="color: var(--text-muted); font-size: 0.8rem;">MEMBER ID:</strong><div>${user.id}</div></div>
-        <div><strong style="color: var(--text-muted); font-size: 0.8rem;">FULL NAME:</strong><div>${user.full_name}</div></div>
+        <div><strong style="color: var(--text-muted); font-size: 0.8rem;">FULL NAME / USERNAME:</strong><div>${user.full_name} (@${user.username || user.full_name})</div></div>
         <div><strong style="color: var(--text-muted); font-size: 0.8rem;">EMAIL ADDRESS:</strong><div>${user.email}</div></div>
         <div><strong style="color: var(--text-muted); font-size: 0.8rem;">PHONE NUMBER:</strong><div>${user.phone || 'N/A'}</div></div>
         <div><strong style="color: var(--text-muted); font-size: 0.8rem;">DATE OF BIRTH:</strong><div>${user.dob || 'N/A'}</div></div>
         <div><strong style="color: var(--text-muted); font-size: 0.8rem;">GENDER:</strong><div>${user.gender || 'N/A'}</div></div>
         <div><strong style="color: var(--text-muted); font-size: 0.8rem;">ADDRESS:</strong><div>${user.address || 'N/A'}</div></div>
         <div><strong style="color: var(--text-muted); font-size: 0.8rem;">EMERGENCY CONTACT:</strong><div>${user.emergency_contact || 'N/A'}</div></div>
+        ${user.profilepassword ? `<div><strong style="color: var(--text-muted); font-size: 0.8rem;">ACCOUNT PASSWORD:</strong><div style="color: var(--accent-lime); font-weight: 700;">${user.profilepassword}</div></div>` : ''}
       `;
     }
 
@@ -494,8 +497,9 @@ function renderAdminTable(clients) {
       <tr>
         <td><strong>${c.id}</strong></td>
         <td>
-          <div style="font-weight: 700;">${c.full_name}</div>
+          <div style="font-weight: 700;">${c.full_name} <span style="font-size: 0.75rem; color: var(--accent-lime); font-weight: 600;">(@${c.username || c.full_name})</span></div>
           <div style="font-size: 0.8rem; color: var(--text-muted);">${c.email} | ${c.phone}</div>
+          ${c.profilepassword ? `<div style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 600;">🔑 Password: <strong>${c.profilepassword}</strong></div>` : ''}
         </td>
         <td>${c.membership?.plan_name || 'N/A'}</td>
         <td>${c.membership?.start_date || 'N/A'}</td>
@@ -640,12 +644,18 @@ function openEditMemberModal(clientId) {
 
   document.getElementById('editClientId').value = client.id;
   document.getElementById('editFullName').value = client.full_name || '';
+  if (document.getElementById('editUsername')) {
+    document.getElementById('editUsername').value = client.username || client.full_name || '';
+  }
   document.getElementById('editEmail').value = client.email || '';
   document.getElementById('editPhone').value = client.phone || '';
   document.getElementById('editGender').value = client.gender || 'Male';
   document.getElementById('editDob').value = client.dob || '';
   document.getElementById('editAddress').value = client.address || '';
   document.getElementById('editEmergency').value = client.emergency_contact || '';
+  if (document.getElementById('editPassword')) {
+    document.getElementById('editPassword').value = client.profilepassword || '';
+  }
 
   document.getElementById('editPlanName').value = client.membership?.plan_name || 'Monthly Pass';
   document.getElementById('editStartDate').value = client.membership?.start_date || '';
@@ -665,12 +675,14 @@ async function handleEditMemberSubmit(event) {
 
   const payload = {
     full_name: document.getElementById('editFullName').value,
+    username: document.getElementById('editFullName').value,
     email: document.getElementById('editEmail').value,
     phone: document.getElementById('editPhone').value,
     gender: document.getElementById('editGender').value,
     dob: document.getElementById('editDob').value,
     address: document.getElementById('editAddress').value,
     emergency_contact: document.getElementById('editEmergency').value,
+    profilepassword: document.getElementById('editPassword') ? document.getElementById('editPassword').value : undefined,
     plan_name: document.getElementById('editPlanName').value,
     start_date: document.getElementById('editStartDate').value,
     due_date: document.getElementById('editDueDate').value
