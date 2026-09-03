@@ -234,6 +234,21 @@
       "emergency_contact": "7022564355",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-8675",
+      "full_name": "Gowtham V",
+      "username": "Gowtham V",
+      "email": "gowthamvadivel2010@gmail.com",
+      "phone": "+918095722282",
+      "password_hash": "$2a$10$Xty.V2zH7xCP.neQTHdJB.D3SAg3CnnDrgkA4u9VbooVngtB8shuK",
+      "profilepassword": "Gowtham777",
+      "dob": "2010-02-26",
+      "gender": "Male",
+      "address": "K G Compund",
+      "emergency_contact": "9008854801",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -366,6 +381,15 @@
     {
       "id": "MEM-8917",
       "client_id": "CLT-8692",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-8841",
+      "client_id": "CLT-8675",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-03",
       "due_date": "2026-09-03",
