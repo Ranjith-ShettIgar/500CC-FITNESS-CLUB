@@ -332,14 +332,14 @@ app.get('/api/admin/export-pdf', authenticateToken, requireRole('ADMIN'), (req, 
 
     doc.fillColor('#0F172A')
        .fontSize(9)
-       .text('MEMBER ID', 45, y + 6, { width: 75 })
-       .text('FULL NAME & EMAIL', 125, y + 6, { width: 170 })
-       .text('PHONE', 300, y + 6, { width: 95 })
-       .text('PLAN', 400, y + 6, { width: 95 })
-       .text('START DATE', 500, y + 6, { width: 70 })
-       .text('DUE DATE', 575, y + 6, { width: 70 })
-       .text('STATUS', 650, y + 6, { width: 65 })
-       .text('LAST PAYMENT', 720, y + 6, { width: 75 });
+       .text('MEMBER ID', 45, y + 6, { width: 70 })
+       .text('FULL NAME & EMAIL', 120, y + 6, { width: 160 })
+       .text('PHONE', 285, y + 6, { width: 85 })
+       .text('PLAN', 375, y + 6, { width: 90 })
+       .text('LAST PAYMENT DATE', 470, y + 6, { width: 105 })
+       .text('DUE DATE', 580, y + 6, { width: 65 })
+       .text('STATUS', 650, y + 6, { width: 75 })
+       .text('LAST PAYMENT', 730, y + 6, { width: 70 });
 
     y += 28;
 
@@ -354,6 +354,8 @@ app.get('/api/admin/export-pdf', authenticateToken, requireRole('ADMIN'), (req, 
       const lastPayment = db.payments
         .filter(p => p.client_id === c.id)
         .sort((a, b) => new Date(b.payment_date) - new Date(a.payment_date))[0] || null;
+      const lastPaymentDate = (lastPayment && lastPayment.payment_date) ||
+                              (membership.last_renewal_date && membership.last_renewal_date !== 'N/A' ? membership.last_renewal_date : 'N/A');
 
       if (idx % 2 === 1) {
         doc.rect(40, y - 4, 760, 22).fill('#F8FAFC');
@@ -361,14 +363,14 @@ app.get('/api/admin/export-pdf', authenticateToken, requireRole('ADMIN'), (req, 
 
       doc.fillColor('#0F172A')
          .fontSize(8.5)
-         .text(c.id, 45, y, { width: 75 })
-         .text(`${c.full_name}`, 125, y, { width: 170 })
-         .text(c.phone || 'N/A', 300, y, { width: 95 })
-         .text(membership.plan_name || 'Pending', 400, y, { width: 95 })
-         .text(membership.start_date || 'N/A', 500, y, { width: 70 })
-         .text(membership.due_date || 'N/A', 575, y, { width: 70 })
-         .text(status.label, 650, y, { width: 65 })
-         .text(lastPayment ? `Rs.${lastPayment.amount}` : 'None', 720, y, { width: 75 });
+         .text(c.id, 45, y, { width: 70 })
+         .text(`${c.full_name}`, 120, y, { width: 160 })
+         .text(c.phone || 'N/A', 285, y, { width: 85 })
+         .text(membership.plan_name || 'Pending', 375, y, { width: 90 })
+         .text(lastPaymentDate, 470, y, { width: 105 })
+         .text(membership.due_date || 'N/A', 580, y, { width: 65 })
+         .text(status.label, 650, y, { width: 75 })
+         .text(lastPayment ? `Rs.${lastPayment.amount}` : 'None', 730, y, { width: 70 });
 
       y += 22;
     });
