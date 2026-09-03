@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const { readDB, writeDB } = require('./db');
+const { readDB, writeDB, writeDBAsync } = require('./db');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'super_secret_gym_key_2026_fitness';
 
@@ -31,7 +31,7 @@ function requireRole(role) {
 }
 
 // Client Register Handler
-function registerClient(clientData) {
+async function registerClient(clientData) {
   if (!clientData) {
     throw new Error('Invalid registration data');
   }
@@ -92,7 +92,7 @@ function registerClient(clientData) {
   };
 
   db.memberships.push(newMembership);
-  writeDB(db);
+  await writeDBAsync(db);
 
   const token = jwt.sign({ id: newUser.id, role: newUser.role, email: newUser.email }, JWT_SECRET, { expiresIn: '24h' });
 

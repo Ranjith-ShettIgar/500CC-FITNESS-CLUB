@@ -7,7 +7,7 @@ const cron = require('node-cron');
 const PDFDocument = require('pdfkit');
 const bcrypt = require('bcryptjs');
 
-const { readDB, writeDB, computeMembershipStatus } = require('./db');
+const { readDB, writeDB, writeDBAsync, syncDBFromCloudIfNeeded, computeMembershipStatus } = require('./db');
 const { authenticateToken, requireRole, registerClient, loginUser } = require('./auth');
 const { generatePDFInvoice, INVOICE_DIR } = require('./invoice');
 const { checkAndSendExpiryReminders } = require('./mailer');
@@ -36,6 +36,14 @@ app.use('/Image and Video', express.static(path.join(__dirname, '../Image and Vi
 app.use('/Image%20and%20Video', express.static(path.join(__dirname, '../Image and Video')));
 app.use('/Invoices', express.static(INVOICE_DIR));
 
+// Auto-Sync Database with GitHub if GITHUB_TOKEN is active (for Vercel persistence)
+app.use('/api', async (req, res, next) => {
+  try {
+    await syncDBFromCloudIfNeeded();
+  } catch (e) {}
+  next();
+});
+
 // Direct page routes
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../HTML and CSS/index.html'));
@@ -54,9 +62,9 @@ app.get('/profile', (req, res) => {
    ========================================================================== */
 
 // Client Register
-app.post('/api/auth/register', (req, res) => {
+app.post('/api/auth/register', async (req, res) => {
   try {
-    const result = registerClient(req.body);
+    const result = await registerClient(req.body);
     res.status(201).json({ message: 'Registration successful', ...result });
   } catch (err) {
     res.status(400).json({ error: err.message });
@@ -176,7 +184,7 @@ app.post('/api/admin/renew', authenticateToken, requireRole('ADMIN'), async (req
     };
 
     db.payments.push(newPayment);
-    writeDB(db);
+    await writeDBAsync(db);
 
     // Generate PDF invoice file asynchronously
     await generatePDFInvoice(newPayment, client);
@@ -192,7 +200,7 @@ app.post('/api/admin/renew', authenticateToken, requireRole('ADMIN'), async (req
 });
 
 // Admin Edit Member Profile & Subscription
-app.put('/api/admin/client/:id', authenticateToken, requireRole('ADMIN'), (req, res) => {
+app.put('/api/admin/client/:id', authenticateToken, requireRole('ADMIN'), async (req, res) => {
   try {
     const { id } = req.params;
     const { full_name, email, phone, gender, dob, address, emergency_contact, plan_name, start_date, due_date, profilepassword } = req.body;
@@ -231,7 +239,7 @@ app.put('/api/admin/client/:id', authenticateToken, requireRole('ADMIN'), (req, 
     if (start_date !== undefined) membership.start_date = start_date;
     if (due_date !== undefined) membership.due_date = due_date;
 
-    writeDB(db);
+    await writeDBAsync(db);
 
     const { password_hash, ...safeClient } = client;
     res.json({ message: 'Member profile updated successfully', client: safeClient, membership });
@@ -241,7 +249,7 @@ app.put('/api/admin/client/:id', authenticateToken, requireRole('ADMIN'), (req, 
 });
 
 // Admin Delete Member Profile & Associated Data
-app.delete('/api/admin/client/:id', authenticateToken, requireRole('ADMIN'), (req, res) => {
+app.delete('/api/admin/client/:id', authenticateToken, requireRole('ADMIN'), async (req, res) => {
   try {
     const { id } = req.params;
     const db = readDB();
@@ -258,7 +266,7 @@ app.delete('/api/admin/client/:id', authenticateToken, requireRole('ADMIN'), (re
     // Remove associated payments
     db.payments = db.payments.filter(p => p.client_id !== id);
 
-    writeDB(db);
+    await writeDBAsync(db);
 
     res.json({ message: `Member ${deletedUser.full_name} (${id}) deleted successfully` });
   } catch (err) {

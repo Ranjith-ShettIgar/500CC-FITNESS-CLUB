@@ -5,6 +5,17 @@ const bcrypt = require('bcryptjs');
 
 const isServerless = !!(process.env.VERCEL || process.env.AWS_EXECUTION_ENV || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.VERCEL_ENV);
 
+// GitHub Auto-Sync Configuration
+const GITHUB_REPO_OWNER = process.env.GITHUB_REPO_OWNER || 'Ranjith-ShettIgar';
+const GITHUB_REPO_NAME = process.env.GITHUB_REPO_NAME || '500CC-FITNESS-CLUB';
+const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
+const GITHUB_FILE_PATH = 'Database/gym_data.json';
+
+let inMemoryCache = null;
+let currentFileSha = null;
+let lastFetchTime = 0;
+const CACHE_TTL_MS = 10000; // 10 seconds cache to avoid rate-limiting
+
 function getDBFilePath() {
   if (isServerless) {
     const tmpFile = path.join(os.tmpdir(), 'gym_data.json');
@@ -60,11 +71,128 @@ function getInitialData() {
   };
 }
 
-let inMemoryCache = null;
+/* ==========================================================================
+   GITHUB AUTO-SYNC CLOUD PERSISTENCE (for Vercel)
+   ========================================================================== */
+
+async function fetchFromGitHub() {
+  const token = process.env.GITHUB_TOKEN;
+  if (!token) return null;
+
+  const url = `https://api.github.com/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/contents/${GITHUB_FILE_PATH}?ref=${GITHUB_BRANCH}`;
+  try {
+    const res = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': '500CC-Fitness-Club'
+      }
+    });
+
+    if (!res.ok) {
+      console.warn(`[GitHub Sync] Fetch returned status ${res.status}`);
+      return null;
+    }
+
+    const data = await res.json();
+    currentFileSha = data.sha;
+    const content = Buffer.from(data.content, 'base64').toString('utf8');
+    const parsed = JSON.parse(content);
+    inMemoryCache = parsed;
+    lastFetchTime = Date.now();
+    return parsed;
+  } catch (err) {
+    console.warn('[GitHub Sync] Fetch error:', err.message);
+    return null;
+  }
+}
+
+async function commitToGitHub(data) {
+  const token = process.env.GITHUB_TOKEN;
+  if (!token) return false;
+
+  try {
+    if (!currentFileSha) {
+      await fetchFromGitHub();
+    }
+
+    const url = `https://api.github.com/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/contents/${GITHUB_FILE_PATH}`;
+    const base64Content = Buffer.from(JSON.stringify(data, null, 2)).toString('base64');
+    const payload = {
+      message: 'Sync gym database [skip ci]',
+      content: base64Content,
+      branch: GITHUB_BRANCH
+    };
+    if (currentFileSha) {
+      payload.sha = currentFileSha;
+    }
+
+    const res = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': '500CC-Fitness-Club',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!res.ok) {
+      // Conflict retry with fresh SHA
+      if (res.status === 409) {
+        await fetchFromGitHub();
+        if (currentFileSha) {
+          payload.sha = currentFileSha;
+          const retry = await fetch(url, {
+            method: 'PUT',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Accept': 'application/vnd.github.v3+json',
+              'User-Agent': '500CC-Fitness-Club',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+          if (retry.ok) {
+            const rData = await retry.json();
+            currentFileSha = rData.content?.sha || currentFileSha;
+            lastFetchTime = Date.now();
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    const resData = await res.json();
+    currentFileSha = resData.content?.sha || currentFileSha;
+    lastFetchTime = Date.now();
+    console.log('[GitHub Sync] Successfully committed database update to GitHub repository.');
+    return true;
+  } catch (err) {
+    console.warn('[GitHub Sync] Commit error:', err.message);
+    return false;
+  }
+}
+
+async function syncDBFromCloudIfNeeded() {
+  const token = process.env.GITHUB_TOKEN;
+  if (!token) return;
+
+  const now = Date.now();
+  if (!inMemoryCache || (now - lastFetchTime) > CACHE_TTL_MS) {
+    await fetchFromGitHub();
+  }
+}
+
+/* ==========================================================================
+   DATABASE READ & WRITE API
+   ========================================================================== */
 
 // Read database
 function readDB() {
-  if (inMemoryCache && isServerless) {
+  if (inMemoryCache) {
     return inMemoryCache;
   }
   const targetFile = getDBFilePath();
@@ -100,6 +228,27 @@ function writeDB(data) {
   } catch (err) {
     console.warn('Database write warning (serverless mode fallback):', err.message);
   }
+
+  // Trigger GitHub auto-sync in background if GITHUB_TOKEN is available
+  if (process.env.GITHUB_TOKEN) {
+    commitToGitHub(data).catch(err => {
+      console.warn('[GitHub Sync] Background commit failed:', err.message);
+    });
+  }
+}
+
+async function writeDBAsync(data) {
+  inMemoryCache = data;
+  const targetFile = getDBFilePath();
+  try {
+    const dir = path.dirname(targetFile);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(targetFile, JSON.stringify(data, null, 2));
+  } catch (err) {}
+
+  if (process.env.GITHUB_TOKEN) {
+    await commitToGitHub(data);
+  }
 }
 
 // Calculate dynamic status: ACTIVE (>2 days), EXPIRING_SOON (0 to 2 days), EXPIRED (<0 days)
@@ -126,5 +275,10 @@ function computeMembershipStatus(dueDateStr) {
 module.exports = {
   readDB,
   writeDB,
+  writeDBAsync,
+  fetchFromGitHub,
+  commitToGitHub,
+  syncDBFromCloudIfNeeded,
   computeMembershipStatus
 };
+
