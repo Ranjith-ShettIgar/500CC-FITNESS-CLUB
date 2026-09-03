@@ -1,13 +1,31 @@
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const bcrypt = require('bcryptjs');
 
-const DB_FILE = path.join(__dirname, '../Database/gym_data.json');
+const isServerless = !!(process.env.VERCEL || process.env.AWS_EXECUTION_ENV || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.VERCEL_ENV);
 
-// Ensure Database directory exists
-const dbDir = path.dirname(DB_FILE);
-if (!fs.existsSync(dbDir)) {
-  fs.mkdirSync(dbDir, { recursive: true });
+function getDBFilePath() {
+  if (isServerless) {
+    const tmpFile = path.join(os.tmpdir(), 'gym_data.json');
+    if (!fs.existsSync(tmpFile)) {
+      const defaultFile = path.join(__dirname, '../Database/gym_data.json');
+      if (fs.existsSync(defaultFile)) {
+        try {
+          fs.copyFileSync(defaultFile, tmpFile);
+        } catch (e) {}
+      }
+    }
+    return tmpFile;
+  }
+  const defaultPath = path.join(__dirname, '../Database/gym_data.json');
+  const dbDir = path.dirname(defaultPath);
+  if (!fs.existsSync(dbDir)) {
+    try {
+      fs.mkdirSync(dbDir, { recursive: true });
+    } catch (e) {}
+  }
+  return defaultPath;
 }
 
 // Initial Database Structure with Seed Data
@@ -156,26 +174,46 @@ function getInitialData() {
   };
 }
 
+let inMemoryCache = null;
+
 // Read database
 function readDB() {
-  if (!fs.existsSync(DB_FILE)) {
+  if (inMemoryCache && isServerless) {
+    return inMemoryCache;
+  }
+  const targetFile = getDBFilePath();
+  if (!fs.existsSync(targetFile)) {
     const initial = getInitialData();
-    fs.writeFileSync(DB_FILE, JSON.stringify(initial, null, 2));
+    try {
+      const dir = path.dirname(targetFile);
+      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(targetFile, JSON.stringify(initial, null, 2));
+    } catch (e) {}
+    inMemoryCache = initial;
     return initial;
   }
   try {
-    const raw = fs.readFileSync(DB_FILE, 'utf8');
-    return JSON.parse(raw);
+    const raw = fs.readFileSync(targetFile, 'utf8');
+    inMemoryCache = JSON.parse(raw);
+    return inMemoryCache;
   } catch (e) {
     const initial = getInitialData();
-    fs.writeFileSync(DB_FILE, JSON.stringify(initial, null, 2));
+    inMemoryCache = initial;
     return initial;
   }
 }
 
 // Write database
 function writeDB(data) {
-  fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
+  inMemoryCache = data;
+  const targetFile = getDBFilePath();
+  try {
+    const dir = path.dirname(targetFile);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(targetFile, JSON.stringify(data, null, 2));
+  } catch (err) {
+    console.warn('Database write warning (serverless mode fallback):', err.message);
+  }
 }
 
 // Calculate dynamic status: ACTIVE (>2 days), EXPIRING_SOON (0 to 2 days), EXPIRED (<0 days)

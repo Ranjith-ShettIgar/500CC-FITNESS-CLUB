@@ -150,15 +150,29 @@ async function handleAuthSubmit(event) {
       window.location.href = 'index.html';
 
     } else if (currentAuthTab === 'client-register') {
+      const fullName = (document.getElementById('regName')?.value || '').trim();
+      const email = (document.getElementById('regEmail')?.value || '').trim();
+      const password = document.getElementById('regPassword')?.value || '';
+
+      if (!fullName) {
+        throw new Error('Please enter your full name.');
+      }
+      if (!email) {
+        throw new Error('Please enter your email address.');
+      }
+      if (!password) {
+        throw new Error('Please enter a password for your account.');
+      }
+
       const payload = {
-        full_name: document.getElementById('regName').value,
-        email: document.getElementById('regEmail').value,
-        phone: document.getElementById('regPhone').value,
-        gender: document.getElementById('regGender').value,
-        dob: document.getElementById('regDob').value,
-        address: document.getElementById('regAddress').value,
-        emergency_contact: document.getElementById('regEmergency').value,
-        password: document.getElementById('regPassword').value
+        full_name: fullName,
+        email: email,
+        phone: (document.getElementById('regPhone')?.value || '').trim(),
+        gender: document.getElementById('regGender')?.value || 'Male',
+        dob: document.getElementById('regDob')?.value || '',
+        address: (document.getElementById('regAddress')?.value || '').trim(),
+        emergency_contact: (document.getElementById('regEmergency')?.value || '').trim(),
+        password: password
       };
 
       const res = await fetch(`${API_BASE}/auth/register`, {

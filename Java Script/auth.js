@@ -32,28 +32,46 @@ function requireRole(role) {
 
 // Client Register Handler
 function registerClient(clientData) {
+  if (!clientData) {
+    throw new Error('Invalid registration data');
+  }
+
+  const fullName = (clientData.full_name || '').trim();
+  const email = (clientData.email || '').trim().toLowerCase();
+  const password = clientData.password || '';
+
+  if (!fullName) {
+    throw new Error('Full name is required');
+  }
+  if (!email) {
+    throw new Error('Email address is required');
+  }
+  if (!password) {
+    throw new Error('Please create a password for your account');
+  }
+
   const db = readDB();
 
   // Check email uniqueness
-  const existing = db.users.find(u => u.email.toLowerCase() === clientData.email.toLowerCase());
+  const existing = db.users.find(u => u.email && u.email.toLowerCase() === email);
   if (existing) {
-    throw new Error('Email is already registered');
+    throw new Error('This email address is already registered. Please log in instead.');
   }
 
   const clientId = `CLT-${Date.now().toString().slice(-4)}`;
-  const passwordHash = bcrypt.hashSync(clientData.password, 10);
+  const passwordHash = bcrypt.hashSync(password, 10);
   const todayStr = new Date().toISOString().split('T')[0];
 
   const newUser = {
     id: clientId,
-    full_name: clientData.full_name,
-    email: clientData.email.toLowerCase(),
-    phone: clientData.phone || '',
+    full_name: fullName,
+    email: email,
+    phone: (clientData.phone || '').trim(),
     password_hash: passwordHash,
     dob: clientData.dob || '',
     gender: clientData.gender || 'Unspecified',
-    address: clientData.address || '',
-    emergency_contact: clientData.emergency_contact || '',
+    address: (clientData.address || '').trim(),
+    emergency_contact: (clientData.emergency_contact || '').trim(),
     role: 'CLIENT',
     created_at: todayStr
   };

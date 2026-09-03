@@ -22,6 +22,19 @@
       "emergency_contact": "8867143275",
       "role": "CLIENT",
       "created_at": "2026-09-02"
+    },
+    {
+      "id": "CLT-2514",
+      "full_name": "Sampath",
+      "email": "samup@gmail.com",
+      "phone": "9481102381",
+      "password_hash": "$2a$10$0oA3tKD.SekvRKm4PprTRuWR6Di6FWAhJFv3c0PlASXnsSgjOW48O",
+      "dob": "2007-06-03",
+      "gender": "Male",
+      "address": "",
+      "emergency_contact": "",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -33,6 +46,15 @@
       "due_date": "2026-10-02",
       "last_renewal_date": "2026-09-02",
       "amount_paid": 800
+    },
+    {
+      "id": "MEM-2574",
+      "client_id": "CLT-2514",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
     }
   ],
   "payments": [

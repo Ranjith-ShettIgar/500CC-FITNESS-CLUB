@@ -1,11 +1,16 @@
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
-const INVOICE_DIR = path.join(__dirname, '../Invoices');
-if (!fs.existsSync(INVOICE_DIR)) {
-  fs.mkdirSync(INVOICE_DIR, { recursive: true });
-}
+const isServerless = !!(process.env.VERCEL || process.env.AWS_EXECUTION_ENV || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.VERCEL_ENV);
+const INVOICE_DIR = isServerless ? path.join(os.tmpdir(), 'Invoices') : path.join(__dirname, '../Invoices');
+
+try {
+  if (!fs.existsSync(INVOICE_DIR)) {
+    fs.mkdirSync(INVOICE_DIR, { recursive: true });
+  }
+} catch (e) {}
 
 /**
  * Generates a PDF invoice for a recorded gym payment.
