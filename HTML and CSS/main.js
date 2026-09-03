@@ -55,7 +55,12 @@ function switchAuthTab(tabName) {
       </div>
       <div class="form-group">
         <label class="form-label">Password</label>
-        <input type="password" id="authPassword" class="form-control" placeholder="Please Enter your Password" required>
+        <div class="password-input-wrap">
+          <input type="password" id="authPassword" class="form-control" placeholder="Please Enter your Password" required>
+          <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('authPassword', this)" aria-label="Show password" title="Show password">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          </button>
+        </div>
       </div>
     `;
   } else if (tabName === 'client-register') {
@@ -99,7 +104,12 @@ function switchAuthTab(tabName) {
       </div>
       <div class="form-group">
         <label class="form-label">Create Password *</label>
-        <input type="password" id="regPassword" class="form-control" placeholder="Please Enter your Password" required>
+        <div class="password-input-wrap">
+          <input type="password" id="regPassword" class="form-control" placeholder="Please Enter your Password" required>
+          <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('regPassword', this)" aria-label="Show password" title="Show password">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          </button>
+        </div>
       </div>
     `;
   } else if (tabName === 'admin-login') {
@@ -113,9 +123,36 @@ function switchAuthTab(tabName) {
       </div>
       <div class="form-group">
         <label class="form-label">Admin Password</label>
-        <input type="password" id="adminPassword" class="form-control" placeholder="Please Enter your Password" required>
+        <div class="password-input-wrap">
+          <input type="password" id="adminPassword" class="form-control" placeholder="Please Enter your Password" required>
+          <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('adminPassword', this)" aria-label="Show password" title="Show password">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          </button>
+        </div>
       </div>
     `;
+  }
+}
+
+// Toggle password visibility between masked and plaintext
+function togglePasswordVisibility(inputId, btn) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  const isCurrentlyPassword = input.type === 'password';
+  input.type = isCurrentlyPassword ? 'text' : 'password';
+
+  if (btn) {
+    if (isCurrentlyPassword) {
+      // Switched to visible: show slashed eye (click to hide)
+      btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`;
+      btn.setAttribute('aria-label', 'Hide password');
+      btn.setAttribute('title', 'Hide password');
+    } else {
+      // Switched to hidden: show open eye (click to see)
+      btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+      btn.setAttribute('aria-label', 'Show password');
+      btn.setAttribute('title', 'Show password');
+    }
   }
 }
 
