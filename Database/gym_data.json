@@ -129,6 +129,21 @@
       "emergency_contact": "9900302166",
       "role": "CLIENT",
       "created_at": "2026-09-03"
+    },
+    {
+      "id": "CLT-0573",
+      "full_name": "Karthik k poojary",
+      "username": "Karthik k poojary",
+      "email": "karthikpoojary238@gmail.com",
+      "phone": "8310325238",
+      "password_hash": "$2a$10$db.x2HibVAR./9W9O29B2eJBj55262eEDqAmqteWdpvmixUso58n6",
+      "profilepassword": "kathu238",
+      "dob": "2004-09-20",
+      "gender": "Male",
+      "address": "Kundapura",
+      "emergency_contact": "8310325238",
+      "role": "CLIENT",
+      "created_at": "2026-09-03"
     }
   ],
   "memberships": [
@@ -198,6 +213,15 @@
     {
       "id": "MEM-8925",
       "client_id": "CLT-8762",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-03",
+      "due_date": "2026-09-03",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-0738",
+      "client_id": "CLT-0573",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-03",
       "due_date": "2026-09-03",
