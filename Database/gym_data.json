@@ -294,6 +294,21 @@
       "emergency_contact": "9620975921",
       "role": "CLIENT",
       "created_at": "2026-09-04"
+    },
+    {
+      "id": "CLT-3808",
+      "full_name": "Siddharth",
+      "username": "Siddharth",
+      "email": "acharyavijay30@gmail.com",
+      "phone": "9663835488",
+      "password_hash": "$2a$10$jmCHbjjTWku9UDIyeurWF.TAAiiesa1QOfsb3B.JaKgtjdbkv6qsq",
+      "profilepassword": "07siddharth",
+      "dob": "2010-08-07",
+      "gender": "Male",
+      "address": "Haklady",
+      "emergency_contact": "9663835488",
+      "role": "CLIENT",
+      "created_at": "2026-09-04"
     }
   ],
   "memberships": [
@@ -467,6 +482,15 @@
       "due_date": "2026-03-10",
       "last_renewal_date": "2026-03-09",
       "amount_paid": 1500
+    },
+    {
+      "id": "MEM-3981",
+      "client_id": "CLT-3808",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-04",
+      "due_date": "2026-09-04",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
     }
   ],
   "payments": [
