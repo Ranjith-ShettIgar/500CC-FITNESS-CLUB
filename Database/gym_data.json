@@ -331,7 +331,7 @@
       "username": "Girish Poojary",
       "email": "girishp406@gmail.com",
       "phone": "8861499307",
-      "password_hash": "$2a$10$RGfIjmbSKp/WAAGJpa/9VuFCXZGSAmzk0r9uD3kb.JZL6XR6ETexm",
+      "password_hash": "$2a$10$u3DnJ5XKaZVmy.4oLHqWDupJB/8kgaH6zyP2bfo2Tx8vCtaTFzCpy",
       "profilepassword": "Giri@17041993",
       "dob": "1993-04-17",
       "gender": "Male",
@@ -534,9 +534,9 @@
     {
       "id": "MEM-1880",
       "client_id": "CLT-1774",
-      "plan_name": "Pending Activation",
-      "start_date": "2026-09-04",
-      "due_date": "2026-09-04",
+      "plan_name": "Monthly Pass",
+      "start_date": "2026-08-19",
+      "due_date": "2026-09-19",
       "last_renewal_date": "N/A",
       "amount_paid": 0
     }
