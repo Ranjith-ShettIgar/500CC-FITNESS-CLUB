@@ -279,6 +279,21 @@
       "emergency_contact": "8073533354",
       "role": "CLIENT",
       "created_at": "2026-09-04"
+    },
+    {
+      "id": "CLT-6873",
+      "full_name": "Prakash Tallur",
+      "username": "Prakash Tallur",
+      "email": "tallurprakash96@gmail.com",
+      "phone": "9620975921",
+      "password_hash": "$2a$10$.JYzx9XTicB0B7SCNrDa9ubnGQp5OzbThTIwcF4cs5N2.4CURnmDm",
+      "profilepassword": "Pakka96",
+      "dob": "",
+      "gender": "Male",
+      "address": "\"Shri kunthi\" Nilaya Nagabana road Pinganigudde Tallur",
+      "emergency_contact": "9620975921",
+      "role": "CLIENT",
+      "created_at": "2026-09-04"
     }
   ],
   "memberships": [
@@ -438,6 +453,15 @@
     {
       "id": "MEM-1995",
       "client_id": "CLT-1890",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-04",
+      "due_date": "2026-09-04",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-7111",
+      "client_id": "CLT-6873",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-04",
       "due_date": "2026-09-04",
