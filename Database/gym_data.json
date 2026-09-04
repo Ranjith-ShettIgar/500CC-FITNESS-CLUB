@@ -339,6 +339,21 @@
       "emergency_contact": "6363091744",
       "role": "CLIENT",
       "created_at": "2026-09-04"
+    },
+    {
+      "id": "CLT-0672",
+      "full_name": "Ganesh kutty",
+      "username": "Ganesh kutty",
+      "email": "ganeshvkutty@gmail.com",
+      "phone": "9880346453",
+      "password_hash": "$2a$10$LIKlazioktAlqif4KjUVAeQtga15/cd8bXPXA18jfFLgYoAYTh4fG",
+      "profilepassword": "Pr@989595",
+      "dob": "2010-01-29",
+      "gender": "Male",
+      "address": "72/1 6th ward kanvarsing road Kundapura",
+      "emergency_contact": "9036674583",
+      "role": "CLIENT",
+      "created_at": "2026-09-04"
     }
   ],
   "memberships": [
@@ -539,6 +554,15 @@
       "due_date": "2026-09-19",
       "last_renewal_date": "2026-08-19",
       "amount_paid": 800
+    },
+    {
+      "id": "MEM-0777",
+      "client_id": "CLT-0672",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-04",
+      "due_date": "2026-09-04",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
     }
   ],
   "payments": [
