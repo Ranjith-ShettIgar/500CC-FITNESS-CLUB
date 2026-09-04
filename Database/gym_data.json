@@ -346,7 +346,7 @@
       "username": "Ganesh kutty",
       "email": "ganeshvkutty@gmail.com",
       "phone": "9880346453",
-      "password_hash": "$2a$10$LIKlazioktAlqif4KjUVAeQtga15/cd8bXPXA18jfFLgYoAYTh4fG",
+      "password_hash": "$2a$10$h82UFoIEUWUWifBU460KzuN14ChAkUUw4o/O4lz1ijLI1JyZMxTXq",
       "profilepassword": "Pr@989595",
       "dob": "2010-01-29",
       "gender": "Male",
@@ -588,9 +588,9 @@
     {
       "id": "MEM-0777",
       "client_id": "CLT-0672",
-      "plan_name": "Pending Activation",
-      "start_date": "2026-09-04",
-      "due_date": "2026-09-04",
+      "plan_name": "Monthly Pass",
+      "start_date": "2026-09-01",
+      "due_date": "2026-10-01",
       "last_renewal_date": "N/A",
       "amount_paid": 0
     },
