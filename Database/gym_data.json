@@ -354,6 +354,21 @@
       "emergency_contact": "9036674583",
       "role": "CLIENT",
       "created_at": "2026-09-04"
+    },
+    {
+      "id": "CLT-5295",
+      "full_name": "Manjunath",
+      "username": "Manjunath",
+      "email": "manjukharvi634@gmail.com",
+      "phone": "+917899881589",
+      "password_hash": "$2a$10$z8.wb0sRgDeW9cB/pZzCt.vmF7y9SLC7X8XBaNU2OqDHN4K9hklne",
+      "profilepassword": "789988",
+      "dob": "2008-10-22",
+      "gender": "Male",
+      "address": "Kundapura",
+      "emergency_contact": "7899881589",
+      "role": "CLIENT",
+      "created_at": "2026-09-04"
     }
   ],
   "memberships": [
@@ -558,6 +573,15 @@
     {
       "id": "MEM-0777",
       "client_id": "CLT-0672",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-04",
+      "due_date": "2026-09-04",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-5468",
+      "client_id": "CLT-5295",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-04",
       "due_date": "2026-09-04",
