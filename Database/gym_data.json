@@ -316,7 +316,7 @@
       "username": "Sugam",
       "email": "sugamgeruvalli@gmail.com",
       "phone": "7411296605",
-      "password_hash": "$2a$10$xcs/tjM4LtLtAKdZ6fReieykFBqbP7t/BZ1eQT7Nbz.xiHN484j3K",
+      "password_hash": "$2a$10$87ShIVE5u3OW5NaQ76gPwuV4l.ayOaaeKjEEzvYQoFGZuus4QvATa",
       "profilepassword": "sugam@#123",
       "dob": "2007-04-22",
       "gender": "Male",
@@ -510,9 +510,9 @@
     {
       "id": "MEM-3573",
       "client_id": "CLT-3407",
-      "plan_name": "Pending Activation",
-      "start_date": "2026-09-04",
-      "due_date": "2026-09-04",
+      "plan_name": "",
+      "start_date": "2026-08-19",
+      "due_date": "2026-10-19",
       "last_renewal_date": "N/A",
       "amount_paid": 0
     }
