@@ -106,7 +106,7 @@
       "username": "Kiran",
       "email": "kinna708@gmail.com",
       "phone": "8151946642",
-      "password_hash": "$2a$10$Z4nBSTt.nLfDpTZUC3R8f.zcdHQ.2wsvBq9er4eqQwz6N71RYkb8G",
+      "password_hash": "$2a$10$4gTZa/xMQ3jepflFmGr9B.49mRGXMaYj6ptOWDmOrH4TekZgHYYtK",
       "profilepassword": "kinna@1234",
       "dob": "1999-10-11",
       "gender": "Male",
@@ -444,9 +444,9 @@
     {
       "id": "MEM-2013",
       "client_id": "CLT-1921",
-      "plan_name": "Pending Activation",
-      "start_date": "2026-09-03",
-      "due_date": "2026-09-03",
+      "plan_name": "Monthly Pass",
+      "start_date": "2026-09-05",
+      "due_date": "2026-10-05",
       "last_renewal_date": "N/A",
       "amount_paid": 0
     },
