@@ -151,7 +151,7 @@
       "username": "Kishan",
       "email": "kishan9148862571@gmail.com",
       "phone": "9113546202",
-      "password_hash": "$2a$10$4h0V/937j6voz6vFEdqkYuEpX9DDx7Kmyz1ZDrSjywZ4orAtmClBq",
+      "password_hash": "$2a$10$4UcFWkSuL3uqtxlhRRr7Ku7cu9.5RbR0cpT/JpZkKKW7V/6djnT0G",
       "profilepassword": "kishan1234",
       "dob": "2000-05-01",
       "gender": "Male",
@@ -471,9 +471,9 @@
     {
       "id": "MEM-5617",
       "client_id": "CLT-5449",
-      "plan_name": "Pending Activation",
-      "start_date": "2026-09-03",
-      "due_date": "2026-09-03",
+      "plan_name": "Monthly Pass",
+      "start_date": "2026-09-05",
+      "due_date": "2026-10-05",
       "last_renewal_date": "N/A",
       "amount_paid": 0
     },
