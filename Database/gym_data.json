@@ -324,6 +324,21 @@
       "emergency_contact": "7411296605",
       "role": "CLIENT",
       "created_at": "2026-09-04"
+    },
+    {
+      "id": "CLT-1774",
+      "full_name": "Girish Poojary",
+      "username": "Girish Poojary",
+      "email": "girishp406@gmail.com",
+      "phone": "8861499307",
+      "password_hash": "$2a$10$RGfIjmbSKp/WAAGJpa/9VuFCXZGSAmzk0r9uD3kb.JZL6XR6ETexm",
+      "profilepassword": "Giri@17041993",
+      "dob": "1993-04-17",
+      "gender": "Male",
+      "address": "Kharvi keri Kundapur",
+      "emergency_contact": "6363091744",
+      "role": "CLIENT",
+      "created_at": "2026-09-04"
     }
   ],
   "memberships": [
@@ -515,6 +530,15 @@
       "due_date": "2026-10-04",
       "last_renewal_date": "2026-09-04",
       "amount_paid": 800
+    },
+    {
+      "id": "MEM-1880",
+      "client_id": "CLT-1774",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-04",
+      "due_date": "2026-09-04",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
     }
   ],
   "payments": [
