@@ -414,6 +414,21 @@
       "emergency_contact": "9741623257",
       "role": "CLIENT",
       "created_at": "2026-09-04"
+    },
+    {
+      "id": "CLT-7038",
+      "full_name": "Arjun.R.shet",
+      "username": "Arjun.R.shet",
+      "email": "arjunshet76@gmail.com",
+      "phone": "9353689363",
+      "password_hash": "$2a$10$9WE96pgaGns.k8.6k.Aq3uhK9PpPONHyGC.EoOfA4VXDl.v03cxnu",
+      "profilepassword": "ArjunMax",
+      "dob": "2026-09-10",
+      "gender": "Male",
+      "address": "Sharath nilaya compoun, VL layout, Bahadurshah road, near Ram mandir Kundapura",
+      "emergency_contact": "9686442770",
+      "role": "CLIENT",
+      "created_at": "2026-09-04"
     }
   ],
   "memberships": [
@@ -654,6 +669,15 @@
     {
       "id": "MEM-5118",
       "client_id": "CLT-4956",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-04",
+      "due_date": "2026-09-04",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-7209",
+      "client_id": "CLT-7038",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-04",
       "due_date": "2026-09-04",
