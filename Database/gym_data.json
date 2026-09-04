@@ -315,7 +315,7 @@
       "plan_name": "Monthly Pass",
       "start_date": "2026-09-19",
       "due_date": "2026-10-19",
-      "last_renewal_date": "2026-09-04",
+      "last_renewal_date": "2026-09-19",
       "amount_paid": 800
     },
     {
@@ -540,6 +540,18 @@
       "payment_date": "2026-08-01",
       "payment_method": "UPI / QR Code",
       "due_date": "2026-09-01",
+      "recorded_by_admin": "ADM-1001"
+    },
+    {
+      "id": "PAY-2913",
+      "invoice_number": "INV-2026-6589",
+      "client_id": "CLT-0974",
+      "membership_id": "MEM-1127",
+      "amount": 800,
+      "plan_name": "Monthly Pass",
+      "payment_date": "2026-09-19",
+      "payment_method": "Cash",
+      "due_date": "2026-10-19",
       "recorded_by_admin": "ADM-1001"
     }
   ],
