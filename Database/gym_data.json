@@ -136,7 +136,7 @@
       "username": "Karthik k poojary",
       "email": "karthikpoojary238@gmail.com",
       "phone": "8310325238",
-      "password_hash": "$2a$10$db.x2HibVAR./9W9O29B2eJBj55262eEDqAmqteWdpvmixUso58n6",
+      "password_hash": "$2a$10$SlyIH3HPeyR4IeHfEDYY4ujMHwpyeUfPak/aiCkZHUQM.EZyhBrxa",
       "profilepassword": "kathu238",
       "dob": "2004-09-20",
       "gender": "Male",
@@ -357,9 +357,9 @@
     {
       "id": "MEM-0738",
       "client_id": "CLT-0573",
-      "plan_name": "Pending Activation",
-      "start_date": "2026-09-03",
-      "due_date": "2026-09-03",
+      "plan_name": "Monthly Pass",
+      "start_date": "2026-08-01",
+      "due_date": "2026-09-01",
       "last_renewal_date": "N/A",
       "amount_paid": 0
     },
