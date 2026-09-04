@@ -369,6 +369,21 @@
       "emergency_contact": "7899881589",
       "role": "CLIENT",
       "created_at": "2026-09-04"
+    },
+    {
+      "id": "CLT-6836",
+      "full_name": "Shiner mendonca",
+      "username": "Shiner mendonca",
+      "email": "shinermendonca04@gmail.com",
+      "phone": "7899251326",
+      "password_hash": "$2a$10$Vw6oXQbMX8tLFgkw951zYeaYplAUyki9o7M7l4/upZiHVM7/Yt/jK",
+      "profilepassword": "02112009",
+      "dob": "2009-02-11",
+      "gender": "Male",
+      "address": "Uppinakudru road tallur post kundapuar talluk",
+      "emergency_contact": "6366047326",
+      "role": "CLIENT",
+      "created_at": "2026-09-04"
     }
   ],
   "memberships": [
@@ -582,6 +597,15 @@
     {
       "id": "MEM-5468",
       "client_id": "CLT-5295",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-04",
+      "due_date": "2026-09-04",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-7006",
+      "client_id": "CLT-6836",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-04",
       "due_date": "2026-09-04",
