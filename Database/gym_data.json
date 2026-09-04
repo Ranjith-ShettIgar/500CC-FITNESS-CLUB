@@ -517,6 +517,18 @@
       "payment_method": "Cash",
       "due_date": "2026-10-03",
       "recorded_by_admin": "ADM-1001"
+    },
+    {
+      "id": "PAY-5316",
+      "invoice_number": "INV-2026-1786",
+      "client_id": "CLT-2533",
+      "membership_id": "MEM-2698",
+      "amount": 1000,
+      "plan_name": "Monthly Pass",
+      "payment_date": "2026-09-03",
+      "payment_method": "UPI / QR Code",
+      "due_date": "2026-10-03",
+      "recorded_by_admin": "ADM-1001"
     }
   ],
   "notifications": []
