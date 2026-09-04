@@ -601,6 +601,18 @@
       "payment_method": "UPI / QR Code",
       "due_date": "2026-03-10",
       "recorded_by_admin": "ADM-1001"
+    },
+    {
+      "id": "PAY-9925",
+      "invoice_number": "INV-2026-5324",
+      "client_id": "CLT-6873",
+      "membership_id": "MEM-7111",
+      "amount": 1500,
+      "plan_name": "Monthly Pass",
+      "payment_date": "2026-03-09",
+      "payment_method": "UPI / QR Code",
+      "due_date": "2026-03-10",
+      "recorded_by_admin": "ADM-1001"
     }
   ],
   "notifications": []
