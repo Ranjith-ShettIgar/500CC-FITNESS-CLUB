@@ -481,6 +481,18 @@
       "payment_method": "Cash",
       "due_date": "2026-10-04",
       "recorded_by_admin": "ADM-1001"
+    },
+    {
+      "id": "PAY-0177",
+      "invoice_number": "INV-2026-5983",
+      "client_id": "CLT-0974",
+      "membership_id": "MEM-1127",
+      "amount": 800,
+      "plan_name": "Monthly Pass",
+      "payment_date": "2026-09-04",
+      "payment_method": "Cash",
+      "due_date": "2026-10-04",
+      "recorded_by_admin": "ADM-1001"
     }
   ],
   "notifications": []
