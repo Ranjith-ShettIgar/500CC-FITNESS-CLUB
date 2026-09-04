@@ -309,6 +309,21 @@
       "emergency_contact": "9663835488",
       "role": "CLIENT",
       "created_at": "2026-09-04"
+    },
+    {
+      "id": "CLT-3407",
+      "full_name": "Sugam",
+      "username": "Sugam",
+      "email": "sugamgeruvalli@gmail.com",
+      "phone": "7411296605",
+      "password_hash": "$2a$10$xcs/tjM4LtLtAKdZ6fReieykFBqbP7t/BZ1eQT7Nbz.xiHN484j3K",
+      "profilepassword": "sugam@#123",
+      "dob": "2007-04-22",
+      "gender": "Male",
+      "address": "Thirthahalli",
+      "emergency_contact": "7411296605",
+      "role": "CLIENT",
+      "created_at": "2026-09-04"
     }
   ],
   "memberships": [
@@ -486,6 +501,15 @@
     {
       "id": "MEM-3981",
       "client_id": "CLT-3808",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-04",
+      "due_date": "2026-09-04",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-3573",
+      "client_id": "CLT-3407",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-04",
       "due_date": "2026-09-04",
