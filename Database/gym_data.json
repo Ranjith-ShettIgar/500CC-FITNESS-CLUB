@@ -486,11 +486,11 @@
     {
       "id": "MEM-9435",
       "client_id": "CLT-9272",
-      "plan_name": "Pending Activation",
+      "plan_name": "Annual VIP Pass",
       "start_date": "2026-09-03",
-      "due_date": "2026-09-03",
-      "last_renewal_date": "N/A",
-      "amount_paid": 0
+      "due_date": "2027-03-24",
+      "last_renewal_date": "2026-02-24",
+      "amount_paid": 6000
     },
     {
       "id": "MEM-3991",
@@ -931,6 +931,18 @@
       "invoice_number": "INV-2026-8721",
       "client_id": "CLT-5676",
       "membership_id": "MEM-5831",
+      "amount": 6000,
+      "plan_name": "Annual VIP Pass",
+      "payment_date": "2026-02-24",
+      "payment_method": "Cash",
+      "due_date": "2027-03-24",
+      "recorded_by_admin": "ADM-1001"
+    },
+    {
+      "id": "PAY-0188",
+      "invoice_number": "INV-2026-6893",
+      "client_id": "CLT-9272",
+      "membership_id": "MEM-9435",
       "amount": 6000,
       "plan_name": "Annual VIP Pass",
       "payment_date": "2026-02-24",
