@@ -444,6 +444,21 @@
       "emergency_contact": "",
       "role": "CLIENT",
       "created_at": "2026-09-04"
+    },
+    {
+      "id": "CLT-6771",
+      "full_name": "Abhishek kharvi",
+      "username": "Abhishek kharvi",
+      "email": "abhikharvi429@gmail.com",
+      "phone": "7899962430",
+      "password_hash": "$2a$10$YeyXL8IcqVfHToSPMDdJVuhq7ZSZqY8B7QH0XPcMTv5/dTCO84eQa",
+      "profilepassword": "abhi123",
+      "dob": "2003-04-13",
+      "gender": "Male",
+      "address": "Herikudru-Kundapura Bridge",
+      "emergency_contact": "7899087205",
+      "role": "CLIENT",
+      "created_at": "2026-09-05"
     }
   ],
   "memberships": [
@@ -707,6 +722,15 @@
       "due_date": "2026-09-13",
       "last_renewal_date": "2026-08-13",
       "amount_paid": 800
+    },
+    {
+      "id": "MEM-6941",
+      "client_id": "CLT-6771",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-05",
+      "due_date": "2026-09-05",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
     }
   ],
   "payments": [
