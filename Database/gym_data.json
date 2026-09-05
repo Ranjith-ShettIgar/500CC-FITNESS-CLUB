@@ -539,8 +539,8 @@
       "client_id": "CLT-0573",
       "plan_name": "Monthly Pass",
       "start_date": "2026-08-01",
-      "due_date": "2026-09-01",
-      "last_renewal_date": "2026-08-01",
+      "due_date": "2026-10-01",
+      "last_renewal_date": "2026-09-01",
       "amount_paid": 800
     },
     {
@@ -1020,6 +1020,18 @@
       "payment_date": "2026-08-24",
       "payment_method": "Cash",
       "due_date": "2026-09-24",
+      "recorded_by_admin": "ADM-1001"
+    },
+    {
+      "id": "PAY-9163",
+      "invoice_number": "INV-2026-7728",
+      "client_id": "CLT-0573",
+      "membership_id": "MEM-0738",
+      "amount": 800,
+      "plan_name": "Monthly Pass",
+      "payment_date": "2026-09-01",
+      "payment_method": "Cash",
+      "due_date": "2026-10-01",
       "recorded_by_admin": "ADM-1001"
     }
   ],
