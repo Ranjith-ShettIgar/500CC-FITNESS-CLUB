@@ -459,6 +459,21 @@
       "emergency_contact": "7899087205",
       "role": "CLIENT",
       "created_at": "2026-09-05"
+    },
+    {
+      "id": "CLT-9893",
+      "full_name": "Swasthik S",
+      "username": "Swasthik S",
+      "email": "swasthiksheregra@gmail.com",
+      "phone": "9686232663",
+      "password_hash": "$2a$10$DHfG8WZAhsqHIlhzVMaY6.6fyJVjBU8GzUmryby/Jr1N7VnoxLDYW",
+      "profilepassword": "swasthik08",
+      "dob": "2006-03-05",
+      "gender": "Male",
+      "address": "Moodlakatte kandavara",
+      "emergency_contact": "9686232663",
+      "role": "CLIENT",
+      "created_at": "2026-09-05"
     }
   ],
   "memberships": [
@@ -731,6 +746,15 @@
       "due_date": "2026-10-08",
       "last_renewal_date": "2026-09-08",
       "amount_paid": 800
+    },
+    {
+      "id": "MEM-0025",
+      "client_id": "CLT-9893",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-05",
+      "due_date": "2026-09-05",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
     }
   ],
   "payments": [
