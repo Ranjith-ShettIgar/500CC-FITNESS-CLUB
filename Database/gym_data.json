@@ -474,6 +474,21 @@
       "emergency_contact": "9686232663",
       "role": "CLIENT",
       "created_at": "2026-09-05"
+    },
+    {
+      "id": "CLT-7312",
+      "full_name": "Shree.S Poojary",
+      "username": "Shree.S Poojary",
+      "email": "poojaryshree2005@gmail.com",
+      "phone": "9380296124",
+      "password_hash": "$2a$10$xx.dugFxKGkHBqxQ.bjlQeveNUezgq3pVs86mVSJEc8Nkx/amc/fa",
+      "profilepassword": "poojary 06",
+      "dob": "2005-08-28",
+      "gender": "Male",
+      "address": "Cal_701/6 Kalyan swami road Govt hospital",
+      "emergency_contact": "9380296124",
+      "role": "CLIENT",
+      "created_at": "2026-09-05"
     }
   ],
   "memberships": [
@@ -755,6 +770,15 @@
       "due_date": "2026-10-27",
       "last_renewal_date": "2026-08-27",
       "amount_paid": 600
+    },
+    {
+      "id": "MEM-7465",
+      "client_id": "CLT-7312",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-05",
+      "due_date": "2026-09-05",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
     }
   ],
   "payments": [
