@@ -504,6 +504,21 @@
       "emergency_contact": "8970033259",
       "role": "CLIENT",
       "created_at": "2026-09-05"
+    },
+    {
+      "id": "CLT-4425",
+      "full_name": "Harish Poojary",
+      "username": "Harish Poojary",
+      "email": "harishpoojary281@gmail.com",
+      "phone": "+919108600330",
+      "password_hash": "$2a$10$1vEi1euFPPzJbWi4sQ4AjOu7kR4J4LxVxLTeccYl7AzsVne4QKAlO",
+      "profilepassword": "7829",
+      "dob": "1994-05-04",
+      "gender": "Male",
+      "address": "Moodbettu uppinkudru",
+      "emergency_contact": "+919108600330",
+      "role": "CLIENT",
+      "created_at": "2026-09-05"
     }
   ],
   "memberships": [
@@ -798,6 +813,15 @@
     {
       "id": "MEM-4365",
       "client_id": "CLT-4185",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-05",
+      "due_date": "2026-09-05",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-4588",
+      "client_id": "CLT-4425",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-05",
       "due_date": "2026-09-05",
