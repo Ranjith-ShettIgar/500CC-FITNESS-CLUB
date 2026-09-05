@@ -519,6 +519,21 @@
       "emergency_contact": "+919108600330",
       "role": "CLIENT",
       "created_at": "2026-09-05"
+    },
+    {
+      "id": "CLT-4186",
+      "full_name": "Shivaraj M",
+      "username": "Shivaraj M",
+      "email": "shivarajkanchan777@gmail.com",
+      "phone": "+918722181627",
+      "password_hash": "$2a$10$vjZvz/M4aePsiF1xK6kJaOBRi/Hq517hEbsYkg460VskDAKcGqXh6",
+      "profilepassword": "Smk@1304",
+      "dob": "1997-04-13",
+      "gender": "Male",
+      "address": "3-162, Kuchatty Mane, Ammanabettu Kandlur - 576211",
+      "emergency_contact": "",
+      "role": "CLIENT",
+      "created_at": "2026-09-05"
     }
   ],
   "memberships": [
@@ -822,6 +837,15 @@
     {
       "id": "MEM-4588",
       "client_id": "CLT-4425",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-05",
+      "due_date": "2026-09-05",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-4351",
+      "client_id": "CLT-4186",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-05",
       "due_date": "2026-09-05",
