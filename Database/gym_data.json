@@ -870,11 +870,11 @@
     {
       "id": "MEM-6434",
       "client_id": "CLT-6208",
-      "plan_name": "Pending Activation",
+      "plan_name": "Monthly Pass",
       "start_date": "2026-09-05",
-      "due_date": "2026-09-05",
-      "last_renewal_date": "N/A",
-      "amount_paid": 0
+      "due_date": "2026-01-09",
+      "last_renewal_date": "2026-01-08",
+      "amount_paid": 800
     }
   ],
   "payments": [
@@ -1284,6 +1284,18 @@
       "payment_date": "2026-08-02",
       "payment_method": "Cash",
       "due_date": "2026-10-02",
+      "recorded_by_admin": "ADM-1001"
+    },
+    {
+      "id": "PAY-0199",
+      "invoice_number": "INV-2026-2992",
+      "client_id": "CLT-6208",
+      "membership_id": "MEM-6434",
+      "amount": 800,
+      "plan_name": "Monthly Pass",
+      "payment_date": "2026-01-08",
+      "payment_method": "Cash",
+      "due_date": "2026-01-09",
       "recorded_by_admin": "ADM-1001"
     }
   ],
