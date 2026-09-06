@@ -549,6 +549,21 @@
       "emergency_contact": "8073894472",
       "role": "CLIENT",
       "created_at": "2026-09-05"
+    },
+    {
+      "id": "CLT-5779",
+      "full_name": "Sachin Naik",
+      "username": "Sachin Naik",
+      "email": "sn3099743@gmail.com",
+      "phone": "7795848742",
+      "password_hash": "$2a$10$8YgNJ5KprW7ph2GC3FBqK.qty2cVuIP0k318O8xafZFQSHWfLplMC",
+      "profilepassword": "sachinnaik123",
+      "dob": "2007-04-30",
+      "gender": "Male",
+      "address": "Hayyangar Keradi",
+      "emergency_contact": "9483325489",
+      "role": "CLIENT",
+      "created_at": "2026-09-06"
     }
   ],
   "memberships": [
@@ -875,6 +890,15 @@
       "due_date": "2026-01-09",
       "last_renewal_date": "2026-01-08",
       "amount_paid": 800
+    },
+    {
+      "id": "MEM-5949",
+      "client_id": "CLT-5779",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-06",
+      "due_date": "2026-09-06",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
     }
   ],
   "payments": [
