@@ -564,6 +564,21 @@
       "emergency_contact": "9483325489",
       "role": "CLIENT",
       "created_at": "2026-09-06"
+    },
+    {
+      "id": "CLT-8223",
+      "full_name": "Ranjan Kharvi",
+      "username": "Ranjan Kharvi",
+      "email": "ranjankharvi@50gmail.com",
+      "phone": "6362772929",
+      "password_hash": "$2a$10$QLdA7VJORohYRpwirUj0ierJ4IjCmh7vlcTdOvwP0cAaDSQU2S7Ay",
+      "profilepassword": "bexxi9-rinvir-tomCot",
+      "dob": "2003-09-29",
+      "gender": "Male",
+      "address": "Basrur",
+      "emergency_contact": "6362772929",
+      "role": "CLIENT",
+      "created_at": "2026-09-06"
     }
   ],
   "memberships": [
@@ -894,6 +909,15 @@
     {
       "id": "MEM-5949",
       "client_id": "CLT-5779",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-06",
+      "due_date": "2026-09-06",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-8351",
+      "client_id": "CLT-8223",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-06",
       "due_date": "2026-09-06",
