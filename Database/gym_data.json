@@ -579,6 +579,21 @@
       "emergency_contact": "6362772929",
       "role": "CLIENT",
       "created_at": "2026-09-06"
+    },
+    {
+      "id": "CLT-8687",
+      "full_name": "Sukesh",
+      "username": "Sukesh",
+      "email": "sukeshpoojary7007@gmail.com",
+      "phone": "8618842219",
+      "password_hash": "$2a$10$hV.wZ8ygcG3uTPo4iQYL8.a965DbWX8NYXAFzJDj69ZpIRF1DjDde",
+      "profilepassword": "sukeshgym@123",
+      "dob": "2007-03-23",
+      "gender": "Male",
+      "address": "Mainadi Bettu, vittalwadi, Kundapura",
+      "emergency_contact": "8618842219",
+      "role": "CLIENT",
+      "created_at": "2026-09-06"
     }
   ],
   "memberships": [
@@ -918,6 +933,15 @@
     {
       "id": "MEM-8351",
       "client_id": "CLT-8223",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-06",
+      "due_date": "2026-09-06",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-8862",
+      "client_id": "CLT-8687",
       "plan_name": "Pending Activation",
       "start_date": "2026-09-06",
       "due_date": "2026-09-06",
