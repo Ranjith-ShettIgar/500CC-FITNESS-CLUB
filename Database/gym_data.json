@@ -594,6 +594,21 @@
       "emergency_contact": "8618842219",
       "role": "CLIENT",
       "created_at": "2026-09-06"
+    },
+    {
+      "id": "CLT-6597",
+      "full_name": "Anish ponka",
+      "username": "Anish ponka",
+      "email": "kharvianish215@gmail.com",
+      "phone": "8884704108",
+      "password_hash": "$2a$10$EqXaTjdf0xUHtNOUcolfhOY1iza0oFepcli2bqfiAFioOMUVMFUwa",
+      "profilepassword": "4108",
+      "dob": "1993-11-04",
+      "gender": "Male",
+      "address": "Kundapura",
+      "emergency_contact": "8884704108",
+      "role": "CLIENT",
+      "created_at": "2026-09-07"
     }
   ],
   "memberships": [
@@ -945,6 +960,15 @@
       "plan_name": "Pending Activation",
       "start_date": "2026-09-06",
       "due_date": "2026-09-06",
+      "last_renewal_date": "N/A",
+      "amount_paid": 0
+    },
+    {
+      "id": "MEM-6760",
+      "client_id": "CLT-6597",
+      "plan_name": "Pending Activation",
+      "start_date": "2026-09-07",
+      "due_date": "2026-09-07",
       "last_renewal_date": "N/A",
       "amount_paid": 0
     }
