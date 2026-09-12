@@ -660,11 +660,11 @@
     {
       "id": "MEM-3991",
       "client_id": "CLT-3833",
-      "plan_name": "Monthly Pass",
+      "plan_name": "Annual VIP Pass",
       "start_date": "2026-09-03",
-      "due_date": "2027-03-01",
+      "due_date": "2027-09-12",
       "last_renewal_date": "2026-02-01",
-      "amount_paid": 5000
+      "amount_paid": 14000
     },
     {
       "id": "MEM-2013",
@@ -1464,6 +1464,18 @@
       "payment_date": "2026-02-01",
       "payment_method": "Cash",
       "due_date": "2027-03-01",
+      "recorded_by_admin": "ADM-1001"
+    },
+    {
+      "id": "PAY-3158",
+      "invoice_number": "INV-2026-2114",
+      "client_id": "CLT-3833",
+      "membership_id": "MEM-3991",
+      "amount": 14000,
+      "plan_name": "Annual VIP Pass",
+      "payment_date": "2026-02-01",
+      "payment_method": "Cash",
+      "due_date": "2027-09-12",
       "recorded_by_admin": "ADM-1001"
     }
   ],
